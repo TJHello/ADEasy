@@ -45,33 +45,33 @@ class TJApplication : Application(),ADEasyApplicationImp{
     override fun createADAppConfig(group: String): ADAppConfig? {
         when(group){
             ADInfo.GROUP_YOMOB->{
-                return ADAppConfig.createYomob("2o0pxxxxxxxxxx","10053")
-                    .setWeight(10)
-                    .addParameter("7UmIURYsIxxxxxxx",ADInfo.TYPE_VIDEO)
-                    .addParameter("4jNKxefqixxxxxxx",ADInfo.TYPE_INTERSTITIAL_VIDEO)
+//                return ADAppConfig.createYomob("2o0pxxxxxxxxxx","10053")
+//                    .setWeight(10)
+//                    .addParameter("7UmIURYsIxxxxxxx",ADInfo.TYPE_VIDEO)
+//                    .addParameter("4jNKxefqixxxxxxx",ADInfo.TYPE_INTERSTITIAL_VIDEO)
             }
             ADInfo.GROUP_MI->{
-                return ADAppConfig.createMI("2882303xxxxxxxxx","5911xxxxxxxx"
-                    ,"U3pS6Oxxxxxxx==")
-                    .setWeight(0)
-                    .addParameter("df680161af4eexxxxxxxxxxxxxxxxxx",ADInfo.TYPE_VIDEO)
-                    .addParameter("1e1f1a4432c4fxxxxxxxxxxxxxxxxxx",ADInfo.TYPE_INTERSTITIAL)
+//                return ADAppConfig.createMI("2882303xxxxxxxxx","5911xxxxxxxx"
+//                    ,"U3pS6Oxxxxxxx==")
+//                    .setWeight(0)
+//                    .addParameter("df680161af4eexxxxxxxxxxxxxxxxxx",ADInfo.TYPE_VIDEO)
+//                    .addParameter("1e1f1a4432c4fxxxxxxxxxxxxxxxxxx",ADInfo.TYPE_INTERSTITIAL)
             }
             ADInfo.GROUP_UNITY->{
-                return ADAppConfig.createUnity("xxxxx")
-                    .setWeight(0)
-                    .addParameter("rewardedVideo",ADInfo.TYPE_VIDEO)
-                    .addParameter("interstitial",ADInfo.TYPE_INTERSTITIAL_VIDEO)
+//                return ADAppConfig.createUnity("xxxxx")
+//                    .setWeight(0)
+//                    .addParameter("rewardedVideo",ADInfo.TYPE_VIDEO)
+//                    .addParameter("interstitial",ADInfo.TYPE_INTERSTITIAL_VIDEO)
             }
             ADInfo.GROUP_ADMOB->{
-                return ADAppConfig.createAdmob()
-                    .setWeight(0)
-                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
+//                return ADAppConfig.createAdmob()
+//                    .setWeight(0)
+//                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
             }
             ADInfo.GROUP_BYTE_DANCE->{
-                return ADAppConfig.createByteDance("xxxx",getString(R.string.app_name))
-                    .setWeight(0)
-                    .addParameter("xxxxxx",ADInfo.TYPE_VIDEO)
+//                return ADAppConfig.createByteDance("xxxx",getString(R.string.app_name))
+//                    .setWeight(0)
+//                    .addParameter("xxxxxx",ADInfo.TYPE_VIDEO)
             }
         }
         return null
