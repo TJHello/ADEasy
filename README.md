@@ -100,7 +100,7 @@ class TJApplication : Application(),ADEasyApplicationImp{
 - ### Step4 配置AppActivity（[AppActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/AppActivity.kt)）
 
 
-```
+```kotlin
 abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
     protected val adEasy by lazy { ADEasy.getInstance(this,this) }
 
