@@ -16,7 +16,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:0.9.0001"
+        classpath "com.TJHello.plugins:ADEasy:0.9.0002"
       }
 }
 
@@ -38,11 +38,12 @@ apply plugin: 'ad-easy'
 ADEasyExt{
     adSwitch = true  //广告总开关
     debug = true //是否输出详细日志
-    adMobId = "ca-app-pub-7555156208216777~9662161045" //adMob的id,接入admob必填
+    adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填
     adMob = true //admob开关
     adYomob = true //yomob开关
     adUnity = true //unity开关
     adMi = true //mi广告开关
+    adGdt = true //腾讯优量汇(广点通)开关
 }
 
 //当方法数超限了，使用以下方法。
@@ -168,10 +169,10 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
 ### adEasy API说明
 
 ```kotlin
-boolean hasBanner() //是否有banner
+boolean hasBanner() //是否有banner(暂不支持)
 boolean hasInterstitial() //是否有插屏广告
 boolean hasVideo() //是否有激励视频
-boolean showBanner() //显示banner
+boolean showBanner() //显示banner(暂不支持)
 boolean showInterstitial() //显示插屏
 boolean showInterstitialVideo() //显示插屏视频
 boolean showVideo() //显示激励视频
