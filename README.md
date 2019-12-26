@@ -1,4 +1,6 @@
-# ADEasy使用文档-自动集成说明-内部测试版(初步经过真实环境验证)
+# ADEasy使用文档-自动集成说明-内部测试版
+
+**注意，目前还在不断开发中，目前只会不断更新0001版本，不建议使用**
 
 ---
 一套全广告平台的快速集成框架。
@@ -42,7 +44,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:0.9.0002"
+        classpath "com.TJHello.plugins:ADEasy:0.9.0001"
       }
 }
 

@@ -3,7 +3,6 @@ package com.tjbaobao.utils.demo.adeasy
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
-import com.qq.e.comm.pi.ADI
 import com.tjbaobao.utils.adeasy.ADEasy
 import com.tjbaobao.utils.adeasy.imp.ADEasyApplicationImp
 import com.tjbaobao.utils.adeasy.info.ADInfo
