@@ -43,6 +43,15 @@ repositories {
     }
 }
 
+configurations.all {
+    //每隔24小时检查远程依赖是否存在更新
+    resolutionStrategy.cacheChangingModulesFor 24, 'hours'
+    //每隔10分钟..
+    //resolutionStrategy.cacheChangingModulesFor 10, 'minutes'
+    // 采用动态版本声明的依赖缓存10分钟
+    resolutionStrategy.cacheDynamicVersionsFor 10, 'seconds'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -53,7 +62,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.TJHello:ADEasy:0003'
+    implementation 'com.TJHello:ADEasy:0001'
 
 //    implementation(name: 'ADEasy-0.9.001', ext: 'aar')
 
