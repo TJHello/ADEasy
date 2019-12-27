@@ -13,7 +13,7 @@ ADEasy的接入使用插件自动集成技术，只需要简单控制各个平�
 
 adMob(banner,interstitial,video)
 
-Unity(banner,interstitial,video,interstitialVideo)
+Unity(interstitial,video,interstitialVideo)
 
 Mi(banner,interstitial,video)
 
