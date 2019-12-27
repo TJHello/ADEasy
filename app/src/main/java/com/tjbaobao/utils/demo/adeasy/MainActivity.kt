@@ -2,6 +2,7 @@ package com.tjbaobao.utils.demo.adeasy
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.ViewGroup
 import com.tjbaobao.utils.adeasy.utils.LogUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -36,5 +37,12 @@ class MainActivity : AppActivity() {
 
     override fun onLoadData() {
 
+    }
+
+    /**
+     * 创建banner，如果不需要显示banner则返回null，否则传入父容器
+     */
+    override fun onCreateBanner(): ViewGroup? {
+        return null
     }
 }

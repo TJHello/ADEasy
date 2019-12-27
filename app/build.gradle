@@ -9,7 +9,7 @@ apply plugin: 'ad-easy'
 ADEasyExt{
     adSwitch = true
     debug = true
-    adMobId = "ca-app-pub-7555156208216777~9662161045"
+    adMobId = "ca-app-pub-75551562082xxxx~xxxx61045"
     adMob = true
     adYomob = true
     adUnity = true

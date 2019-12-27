@@ -1,6 +1,7 @@
 package com.tjbaobao.utils.demo.adeasy
 
 import android.os.Bundle
+import android.view.ViewGroup
 import com.tjbaobao.utils.adeasy.utils.LogUtil
 import kotlinx.android.synthetic.main.test_activity_layout.*
 
@@ -26,7 +27,8 @@ import kotlinx.android.synthetic.main.test_activity_layout.*
 class TestActivity : AppActivity() {
 
     override fun onInitValue(savedInstanceState: Bundle?) {
-
+        adEasy.isAutoShowBanner(true)
+        adEasy.isAutoShowInterstitial(true)
     }
 
     override fun onInitView() {
@@ -46,9 +48,21 @@ class TestActivity : AppActivity() {
                 LogUtil.i("[showInterstitial]:callback")
             }
         }
+
+        btShowBanner.setOnClickListener {
+            adEasy.showBanner()
+        }
+
+        btHideBanner.setOnClickListener {
+            adEasy.hideBanner()
+        }
     }
 
     override fun onLoadData() {
 
+    }
+
+    override fun onCreateBanner(): ViewGroup? {
+        return bannerLayout
     }
 }

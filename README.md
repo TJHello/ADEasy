@@ -194,6 +194,54 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
 
 ```
 
+### 使用示例
+
+```kotlin
+
+class TestActivity : AppActivity() {
+
+    override fun onInitValue(savedInstanceState: Bundle?) {
+        adEasy.isAutoShowBanner(true)
+    }
+
+    override fun onInitView() {
+        setContentView(R.layout.test_activity_layout)
+        btShowVideo.setOnClickListener {
+            adEasy.showVideo{adInfo, isReward ->
+                LogUtil.i("[showVideo]:callback:$isReward")
+            }
+        }
+        btShowInterstitialVideo.setOnClickListener {
+            adEasy.showInterstitialVideo {
+                LogUtil.i("[showInterstitialVideo]:callback")
+            }
+        }
+        btShowInterstitial.setOnClickListener {
+            adEasy.showInterstitial {
+                LogUtil.i("[showInterstitial]:callback")
+            }
+        }
+
+        btShowBanner.setOnClickListener {
+            adEasy.showBanner()
+        }
+
+        btHideBanner.setOnClickListener {
+            adEasy.hideBanner()
+        }
+    }
+
+    override fun onLoadData() {
+
+    }
+
+    override fun onCreateBanner(): ViewGroup? {
+        return bannerLayout
+    }
+}
+
+```
+
 ### adEasy API说明
 
 ```kotlin

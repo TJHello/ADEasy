@@ -67,10 +67,12 @@ class TJApplication : Application(),ADEasyApplicationImp{
 //                    .setWeight(0)
 //                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
             }
-            ADInfo.GROUP_BYTE_DANCE->{
-//                return ADAppConfig.createByteDance("xxxx",getString(R.string.app_name))
-//                    .setWeight(0)
-//                    .addParameter("xxxxxx",ADInfo.TYPE_VIDEO)
+            ADInfo.GROUP_FACEBOOK->{
+                return ADAppConfig.createFacebook()
+                    .setWeight(10)
+                    .addParameter("28914969342xxxxxxx_xxxxxxx97797568448",ADInfo.TYPE_INTERSTITIAL)
+                    .addParameter("28914969342xxxxxxx_xxxxxxx02807567947",ADInfo.TYPE_VIDEO)
+                    .addParameter("28914969342xxxxxxx_xxxxxxx21207556107",ADInfo.TYPE_BANNER)
             }
         }
         return null

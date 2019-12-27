@@ -29,6 +29,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="显示插屏" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btShowBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示Banner" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btHideBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="隐藏banner" />
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/bannerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
