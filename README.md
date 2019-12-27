@@ -36,7 +36,7 @@ IronSource
 - ### Step1 接入自动集成插件到build.gradle(project)
 
 
-```
+```groovy
 buildscript {
      repositories {
         ...
@@ -59,7 +59,7 @@ allprojects {
 - ### Step2 启动插件，配置参数到build.gradle(app)
 
 
-```
+```groovy
 ....
 apply plugin: 'ad-easy'
 
@@ -194,7 +194,7 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
 
 ```
 
-### 使用示例
+### 使用示例([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))
 
 ```kotlin
 
@@ -245,13 +245,15 @@ class TestActivity : AppActivity() {
 ### adEasy API说明
 
 ```kotlin
-boolean hasBanner() //是否有banner(暂不支持)
+boolean hasBanner() //是否有banner(暂支持 admob ,facebook,mi)
 boolean hasInterstitial() //是否有插屏广告
 boolean hasVideo() //是否有激励视频
-boolean showBanner() //显示banner(暂不支持)
+boolean showBanner() //显示banner(暂支持 admob ,facebook,mi)
 boolean showInterstitial() //显示插屏
 boolean showInterstitialVideo() //显示插屏视频
 boolean showVideo() //显示激励视频
+boolean hideBanner() //隐藏banner(暂支持 admob ,facebook,mi)
+boolean hideInterstitial(暂不支持)
 ```
 
 ### 简单说明
