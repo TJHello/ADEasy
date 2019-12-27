@@ -2,7 +2,7 @@
 
 **English** [https://github.com/TJHello/ADEasy/blob/master/README-EN.md](https://github.com/TJHello/ADEasy/blob/master/README-EN.md)
 
-# ADEasy(测试版)-自动集成说明
+# ADEasy(Alpha)-自动集成说明
 
 **注意，目前还在不断开发中，只会不断维护更新0001版本，不建议使用**
 
