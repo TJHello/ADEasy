@@ -1,6 +1,10 @@
-# ADEasy使用文档-自动集成说明-内部测试版
+**中文** [https://github.com/TJHello/ADEasy/blob/master/README.md](https://github.com/TJHello/ADEasy/blob/master/README.md)
 
-**注意，目前还在不断开发中，目前只会不断更新0001版本，不建议使用**
+**English** [https://github.com/TJHello/ADEasy/blob/master/README-EN.md](https://github.com/TJHello/ADEasy/blob/master/README-EN.md)
+
+# ADEasy(测试版)-自动集成说明
+
+**注意，目前还在不断开发中，目前只会不断维护更新0001版本，不建议使用**
 
 ---
 一套全广告平台的快速集成框架。
@@ -19,7 +23,7 @@ Mi(banner,interstitial,video)
 
 Yomob(interstitial,video,interstitialVideo)
 
-GDT(腾讯优量汇)(interstitial,video)
+GDT(腾讯优量汇)(插屏2.0，激励视频)
 
 Facebook(banner,interstitial,video)
 
