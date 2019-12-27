@@ -11,23 +11,23 @@ ADEasy的接入使用插件自动集成技术，只需要简单控制各个平�
 
 **目前支持的广告平台:**
 
-adMob
+adMob(banner,interstitial,video)
 
-Unity
+Unity(banner,interstitial,video,interstitialVideo)
 
-Mi
+Mi(banner,interstitial,video)
 
-Yomob
+Yomob(interstitial,video,interstitialVideo)
 
-GDT(腾讯优量汇)
+GDT(腾讯优量汇)(插屏2.0，激励视频)
+
+Facebook(banner,interstitial,video)
 
 **下一步打算支持的广告平台:**
 
 Baidu
 
 Vungle
-
-Facebook
 
 IronSource
 
