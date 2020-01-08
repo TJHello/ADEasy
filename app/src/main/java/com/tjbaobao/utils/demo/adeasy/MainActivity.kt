@@ -9,7 +9,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppActivity() {
 
     override fun onInitValue(savedInstanceState: Bundle?) {
+        adEasy.notShowInterstitialOnce()//首页进来，免一次插屏广告
 
+        //如果有隐私协议或年龄选择弹窗，可以调用以下方法挂起生命周期
+        /*
+        * adEasy.hangLifeUp()
+        * //隐私协议确定的时候调用
+        * adEasy.hangLifeDown()
+        *
+        */
     }
 
     override fun onInitView() {

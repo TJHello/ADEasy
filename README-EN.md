@@ -4,8 +4,6 @@
 
 # ADEasy(Alpha)-自动集成说明
 
-**注意，目前还在不断开发中，只会不断维护更新0001版本，不建议使用**
-
 ---
 一套全广告平台的快速集成框架。
 
@@ -48,7 +46,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:0.9.0001"
+        classpath "com.TJHello.plugins:ADEasy:0.9.0002"
       }
 }
 
@@ -69,13 +67,15 @@ apply plugin: 'ad-easy'
 
 ADEasyExt{
     adSwitch = true  //广告总开关
-    debug = true //是否输出详细日志
+    debug = true //该开关关联广告debug开关，正式版必须要设置为false,0.9.0002开始，release版本会自动设置为false
+    //以下参数选择性填写，默认false
     adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填
     adMob = true //admob开关
     adYomob = true //yomob开关
     adUnity = true //unity开关
     adMi = true //mi广告开关
     adGdt = true //腾讯优量汇(广点通)开关
+    adFacebook = true//Facebook开关
 }
 
 //当方法数超限了，使用以下方法。
@@ -113,10 +113,15 @@ class TJApplication : Application(),ADEasyApplicationImp{
         //创建广告配置
     override fun createADAppConfig(group: String): ADAppConfig? {
         when(group){
-            ADInfo.GROUP_YOMOB->{
-                return ADAppConfig.createYomob("2o0pxxxxxxxxxx","10053")
-                    .setWeight(10)//配置权重
-                    .addParameter("7UmIURYsIxxxxxxx",ADInfo.TYPE_VIDEO)//添加广告场景
+            ADInfo.GROUP_ADMOB->{
+                return ADAppConfig.createAdmob()
+                     .setWeight(10)
+                     .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
+                     .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
+                     .addParameter("ca-app-pub-3940256099942544/8691691433",ADInfo.TYPE_INTERSTITIAL_VIDEO)
+                     .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)
+                     //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
+                //   .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
             }
         }
         return null
@@ -264,5 +269,30 @@ boolean hideInterstitial(暂不支持)
 
 该框架会自动按照权重分配广告，使用者只需要在Application里面配置好相关的广告信息就行了。如果需要动态刷新权重，可以调用ADEasy.changeWeight方法，group在ADInfo里面。
 
+### 版本更新日志
 
+0.9.001 更新时间:2019-12-17
+
+```
+
+ADEasy:0001
+unity版本:3.3.0
+GDTSDK版本:4.110.980
+Yomob版本:1.8.5
+adMob:18.3.0
+MI:2.5.0
+
+```
+
+0.9.002 更新时间:2020-01-08
+
+```
+插件更新日志：
+1、release模式下，强行关闭AdEasy的Debug开关。
+
+ADEasy:0001->0002
+1、支持unity-banner，优化banner显示逻辑，以及修复相关bug。
+2、支持自动化插件修改debug开关。
+
+```
 

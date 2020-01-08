@@ -9,12 +9,13 @@ apply plugin: 'ad-easy'
 ADEasyExt{
     adSwitch = true
     debug = true
-    adMobId = "ca-app-pub-75551562082xxxx~xxxx61045"
+    adMobId = "ca-app-pub-7555156208216777~2135772583"//测试id
     adMob = true
     adYomob = true
     adUnity = true
     adMi = true
     adGdt = true
+    adFacebook = true
 }
 
 android {
@@ -43,15 +44,6 @@ repositories {
     }
 }
 
-configurations.all {
-    //每隔24小时检查远程依赖是否存在更新
-    resolutionStrategy.cacheChangingModulesFor 24, 'hours'
-    //每隔10分钟..
-    //resolutionStrategy.cacheChangingModulesFor 10, 'minutes'
-    // 采用动态版本声明的依赖缓存10分钟
-    resolutionStrategy.cacheDynamicVersionsFor 10, 'seconds'
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -61,45 +53,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-    implementation 'com.TJHello:ADEasy:0001'
-
-//    implementation(name: 'ADEasy-0.9.001', ext: 'aar')
-
-    //请根据自己的需求，选择性接入对应的模块。ADEasy只会开启你接入了的广告平台的相关功能。
-
-//    //Yomob广告
-//    implementation(name: 'TGSDK.1.8.5', ext: 'aar')
-//    implementation(name: 'TGSDKADBaidu.1.8.5', ext: 'aar')
-//    implementation(name: 'TGSDKADGuangdiantong.1.8.5', ext: 'aar')
-//    implementation(name: 'TGSDKADMobvista.1.8.5', ext: 'aar')
-//    implementation(name: 'TGSDKADOneway.1.8.5', ext: 'aar')
-//    implementation(name: 'TGSDKADShenqiad.1.8.5', ext: 'aar')
-//    implementation(name: 'TGSDKADSigmob.1.8.5', ext: 'aar')
-//    implementation(name: 'TGSDKADUniplay.1.8.5', ext: 'aar')
-//    implementation(name: 'TGSDKADYoads.1.8.5', ext: 'aar')
-//
-//    implementation 'com.squareup.okio:okio:2.2.2'
-//    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-//    implementation 'com.tonyodev.fetch:fetch:1.1.5'
-//    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
-//    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-//    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-//
-//    //小米广告
-//    implementation files('libs/mimoSdk-release.jar')
-//
-//    //Unity广告
-//    implementation 'com.unity3d.ads:unity-ads:3.3.0'
-//
-//    //穿山甲广告//尚未支持
-//    implementation(name: 'open_ad_sdk', ext: 'aar')
-//    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
-//
-//    //admob
-//    implementation 'com.google.android.gms:play-services-ads:18.3.0'
-
-    //其它的工具接入
 
     //方法数超限
     implementation 'com.android.support:multidex:1.0.3'

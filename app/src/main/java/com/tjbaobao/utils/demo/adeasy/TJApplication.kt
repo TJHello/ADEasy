@@ -31,7 +31,7 @@ class TJApplication : Application(),ADEasyApplicationImp{
 
     override fun onCreate() {
         super.onCreate()
-        ADEasy.setDebug(true)
+        ADEasy.setDebug(true)//这个关系到广告的测试模式，正式版必须关闭。入使用了自动集成0.9.0002版本开始，release模式下，会强行设置为false
         ADEasy.init(this,this)
     }
 
@@ -63,16 +63,20 @@ class TJApplication : Application(),ADEasyApplicationImp{
 //                    .addParameter("interstitial",ADInfo.TYPE_INTERSTITIAL_VIDEO)
             }
             ADInfo.GROUP_ADMOB->{
-//                return ADAppConfig.createAdmob()
-//                    .setWeight(0)
-//                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
+                return ADAppConfig.createAdmob()
+                    .setWeight(10)
+                    .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
+                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
+                    .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)
+                    //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
+//                    .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
             }
             ADInfo.GROUP_FACEBOOK->{
-                return ADAppConfig.createFacebook()
-                    .setWeight(10)
-                    .addParameter("28914969342xxxxxxx_xxxxxxx97797568448",ADInfo.TYPE_INTERSTITIAL)
-                    .addParameter("28914969342xxxxxxx_xxxxxxx02807567947",ADInfo.TYPE_VIDEO)
-                    .addParameter("28914969342xxxxxxx_xxxxxxx21207556107",ADInfo.TYPE_BANNER)
+//                return ADAppConfig.createFacebook()
+//                    .setWeight(10)
+//                    .addParameter("28914969342xxxxxxx_xxxxxxx97797568448",ADInfo.TYPE_INTERSTITIAL)
+//                    .addParameter("28914969342xxxxxxx_xxxxxxx02807567947",ADInfo.TYPE_VIDEO)
+//                    .addParameter("28914969342xxxxxxx_xxxxxxx21207556107",ADInfo.TYPE_BANNER)
             }
         }
         return null

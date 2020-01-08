@@ -28,7 +28,6 @@ class TestActivity : AppActivity() {
 
     override fun onInitValue(savedInstanceState: Bundle?) {
         adEasy.isAutoShowBanner(true)
-        adEasy.isAutoShowInterstitial(true)
     }
 
     override fun onInitView() {
