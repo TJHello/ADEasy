@@ -69,7 +69,7 @@ ADEasyExt{
     adSwitch = true  //广告总开关
     debug = true //该开关关联广告debug开关，正式版必须要设置为false,0.9.0002开始，release版本会自动设置为false
     //以下参数选择性填写，默认false
-    adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填
+    adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填，并且更改成正确的id，否则admob会闪退。
     adMob = true //admob开关
     adYomob = true //yomob开关
     adUnity = true //unity开关
@@ -118,7 +118,6 @@ class TJApplication : Application(),ADEasyApplicationImp{
                      .setWeight(10)
                      .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
                      .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
-                     .addParameter("ca-app-pub-3940256099942544/8691691433",ADInfo.TYPE_INTERSTITIAL_VIDEO)
                      .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)
                      //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
                 //   .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
