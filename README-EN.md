@@ -275,10 +275,10 @@ boolean hideInterstitial(暂不支持)
 ```
 
 ADEasy:0001
-unity版本:3.3.0
-GDTSDK版本:4.110.980
-Yomob版本:1.8.5
-adMob:18.3.0
+Unity:3.3.0
+GDTSDK:4.110.980
+Yomob:1.8.5
+AdMob:18.3.0
 MI:2.5.0
 
 ```
