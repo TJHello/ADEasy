@@ -13,9 +13,9 @@ ADEasy的接入使用插件自动集成技术，只需要简单控制各个平�
 
 **目前支持的广告平台:**
 
-adMob(banner,interstitial,video)
+adMob(banner,interstitial,video,interstitialVideo)
 
-Unity(interstitial,video,interstitialVideo)
+Unity(banner,interstitial,video,interstitialVideo)
 
 Mi(banner,interstitial,video)
 
@@ -270,16 +270,14 @@ boolean hideInterstitial(暂不支持)
 
 ### 版本更新日志
 
-0.9.001 更新时间:2019-12-17
+0.9.003 更新时间:2020-01-12
 
 ```
+添加java调用示例。
 
-ADEasy:0001
-Unity:3.3.0
-GDTSDK:4.110.980
-Yomob:1.8.5
-AdMob:18.3.0
-MI:2.5.0
+ADEasy:0002->0003
+1、支持admob设置TYPE_INTERSTITIAL_VIDEO。
+2、对java方式调用进行一些友好性兼容。
 
 ```
 
@@ -295,3 +293,15 @@ ADEasy:0001->0002
 
 ```
 
+0.9.001 更新时间:2019-12-17
+
+```
+
+ADEasy:0001
+Unity:3.3.0
+GDTSDK:4.110.980
+Yomob:1.8.5
+AdMob:18.3.0
+MI:2.5.0
+
+```
