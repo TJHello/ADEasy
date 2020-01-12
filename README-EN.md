@@ -121,7 +121,7 @@ class TJApplication : Application(),ADEasyApplicationImp{
         when(group){
             ADInfo.GROUP_ADMOB->{
                 return ADAppConfig.createAdmob()
-                     .setWeight(10)
+                     .initWeight(10)
                      .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
                      .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
                      .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)
