@@ -78,12 +78,18 @@ ADEasyExt{
     adFacebook = true//Facebook开关
 }
 
-//当方法数超限了，使用以下方法。
 android {
     ...
     defaultConfig {
         ...
+        //当方法数超限了
         multiDexEnabled true
+    }
+    
+    //支持java8,可以使用一些便捷的语法糖
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
