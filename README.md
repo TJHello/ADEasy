@@ -21,7 +21,7 @@ Mi(banner,interstitial,video)
 
 Yomob(interstitial,video,interstitialVideo)
 
-GDT(腾讯优量汇)(插屏2.0，激励视频)
+GDT(腾讯优量汇)(banner2.0,插屏2.0,激励视频)
 
 Facebook(banner,interstitial,video)
 
