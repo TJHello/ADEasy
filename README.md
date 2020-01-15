@@ -48,7 +48,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:0.9.0003"
+        classpath "com.TJHello.plugins:ADEasy:0.9.0005"
       }
 }
 
