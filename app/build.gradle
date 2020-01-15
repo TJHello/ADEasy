@@ -16,6 +16,7 @@ ADEasyExt{
     adMi = true
     adGdt = true
     adFacebook = true
+    adByteDance = false
 }
 
 android {

@@ -25,6 +25,8 @@ GDT(腾讯优量汇)(banner2.0,插屏2.0,激励视频)
 
 Facebook(banner,interstitial,video)
 
+ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频))
+
 **下一步打算支持的广告平台:**
 
 Baidu
@@ -76,6 +78,7 @@ ADEasyExt{
     adMi = true //mi广告开关
     adGdt = true //腾讯优量汇(广点通)开关
     adFacebook = true//Facebook开关
+    adByteDance = false//ByteDance(穿山甲)开关
 }
 
 android {
@@ -276,7 +279,22 @@ boolean hideInterstitial(暂不支持)
 
 ### 版本更新日志
 
-0.9.003 更新时间:2020-01-12
+0.9.0005 更新时间:2020-01-15
+
+```
+支持ByteDance
+
+ByteDance:2.8.0
+
+ADEasy:0003->0005
+1、修复广告Group在某些情况下出现错乱的问题。
+2、支持ByteDance
+3、修复GDT-插屏视频的hasAd判断不准确的问题。
+
+```
+
+
+0.9.0003 更新时间:2020-01-12
 
 ```
 添加java调用示例。
@@ -287,7 +305,7 @@ ADEasy:0002->0003
 
 ```
 
-0.9.002 更新时间:2020-01-08
+0.9.0002 更新时间:2020-01-08
 
 ```
 插件更新日志：
@@ -299,7 +317,7 @@ ADEasy:0001->0002
 
 ```
 
-0.9.001 更新时间:2019-12-17
+0.9.0001 更新时间:2019-12-17
 
 ```
 
