@@ -2,16 +2,22 @@
 
 **English** [https://github.com/TJHello/ADEasy/blob/master/README-EN.md](https://github.com/TJHello/ADEasy/blob/master/README-EN.md)
 
-# ADEasy(Alpha)-自动集成说明
+# ADEasy(Alpha)-Automatic integration
 
 ---
-一套全广告平台的快速集成框架。
+A fast integration framework for a all advertising platform.
 
-ADEasy的接入使用插件自动集成技术，只需要简单控制各个平台的开关，就能实现一条龙接入。同时，对于未接入的平台，我们不会携带其任何的的代码以及manifest声明，请放心使用。
+ADEasy used plugin automatic integration technology.
+You only need to control the switch of each advertisement to complete the advertisement access.
 
-当然，ADEasy本身也是有足够的优点的，功能上，它的权重系统能很好的提高聚合广告的收益。用法上，它统一了所有广告平台的接口，实现了简单统一的调用方式，完美利用kotlin的特性，给大家带来的是无比便捷的使用体验。
+In addition, ADEasy itself has enough advantages.
+ Functionally, its weighting system can improve the revenue of aggregated ads. In usage, 
+ it unifies the interface of all advertising platforms, 
+ realizes a simple and unified calling method, 
+ perfectly utilizes the characteristics of kotlin,
+  and brings an extremely convenient and convenient user experience.
 
-**目前支持的广告平台:**
+**Currently supported advertising platforms:**
 
 adMob(banner,interstitial,video,interstitialVideo)
 
@@ -27,7 +33,7 @@ Facebook(banner,interstitial,video)
 
 ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频))
 
-**下一步打算支持的广告平台:**
+**Ad platforms that we plan to support next:**
 
 Baidu
 
@@ -35,9 +41,9 @@ Vungle
 
 IronSource
 
-### 使用步骤
+### Steps for usage
 
-- ### Step1 接入自动集成插件到build.gradle(project)
+- ### Step1 Add plugin -> build.gradle (project)
 
 
 ```groovy
@@ -48,7 +54,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:0.9.0003"
+        classpath "com.TJHello.plugins:ADEasy:0.9.0006"
       }
 }
 
@@ -60,7 +66,7 @@ allprojects {
 }
 
 ```
-- ### Step2 启动插件，配置参数到build.gradle(app)
+- ### Step2 Apply plugin -> build.gradle(app)
 
 
 ```groovy
@@ -68,28 +74,27 @@ allprojects {
 apply plugin: 'ad-easy'
 
 ADEasyExt{
-    adSwitch = true  //广告总开关
-    debug = true //该开关关联广告debug开关，正式版必须要设置为false,0.9.0002开始，release版本会自动设置为false
-    //以下参数选择性填写，默认false
-    adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填，并且更改成正确的id，否则admob会闪退。
-    adMob = true //admob开关
-    adYomob = true //yomob开关
-    adUnity = true //unity开关
-    adMi = true //mi广告开关
-    adGdt = true //腾讯优量汇(广点通)开关
-    adFacebook = true//Facebook开关
-    adByteDance = false//ByteDance(穿山甲)开关
+    adSwitch = true  //Master switch
+    debug = true //Test mode(Automatically set to false in relearse mode)
+    adMobId = "ca-app-pub-755515620*****~*****61045" //adMob id
+    adMob = true //admob
+    adYomob = true //yomob
+    adUnity = true //unity
+    adMi = true //mi
+    adGdt = true //GDT
+    adFacebook = true//Facebook
+    adByteDance = false//ByteDance
 }
 
 android {
     ...
     defaultConfig {
         ...
-        //当方法数超限了
+        //Unable to execute dex: method ID not in [0, 0xffff]: 65536
         multiDexEnabled true
     }
     
-    //支持java8,可以使用一些便捷的语法糖
+    //Support java8
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -97,13 +102,13 @@ android {
 }
 
 dependencies {
-    //方法数超限
+    //Unable to execute dex: method ID not in [0, 0xffff]: 65536
     implementation 'com.android.support:multidex:1.0.3'
 }
 
 ```
 
-- ### Step3 配置Application（[TJApplication](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TJApplication.kt)）
+- ### Step3 Create Application（[TJApplication](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TJApplication.kt)）
 
 ```kotlin
 class TJApplication : Application(),ADEasyApplicationImp{
@@ -114,22 +119,21 @@ class TJApplication : Application(),ADEasyApplicationImp{
         ADEasy.init(this,this)
     }
 
-    //是否去广告
+    //Whether to remove ads
     override fun isRemoveAd(): Boolean {
         return false
     }
 
-        //创建广告配置
+    //Create ad configuration
     override fun createADAppConfig(group: String): ADAppConfig? {
         when(group){
             ADInfo.GROUP_ADMOB->{
                 return ADAppConfig.createAdmob()
                      .initWeight(10)
-                     .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
+                     .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//Test ID
                      .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
-                     .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)
-                     //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
-                //   .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
+                     .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)//video1
+                     .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)//video2
             }
         }
         return null
@@ -137,13 +141,13 @@ class TJApplication : Application(),ADEasyApplicationImp{
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
-        //解决方法数超限问题
+        //Unable to execute dex: method ID not in [0, 0xffff]: 65536
         MultiDex.install(base)
     }
 }
 ```
 
-- ### Step4 配置AppActivity（[AppActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/AppActivity.kt)）
+- ### Step4 Create AppActivity（[AppActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/AppActivity.kt)）
 
 
 ```kotlin
@@ -211,7 +215,7 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
 
 ```
 
-### 使用示例([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))
+### Example([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))
 
 ```kotlin
 
@@ -259,65 +263,74 @@ class TestActivity : AppActivity() {
 
 ```
 
-### adEasy API说明
+### ADEasy API description
 
 ```kotlin
-boolean hasBanner() //是否有banner(暂支持 admob ,facebook,mi)
-boolean hasInterstitial() //是否有插屏广告
-boolean hasVideo() //是否有激励视频
-boolean showBanner() //显示banner(暂支持 admob ,facebook,mi)
-boolean showInterstitial() //显示插屏
-boolean showInterstitialVideo() //显示插屏视频
-boolean showVideo() //显示激励视频
-boolean hideBanner() //隐藏banner(暂支持 admob ,facebook,mi)
-boolean hideInterstitial(暂不支持)
+boolean hasBanner() 
+boolean hasInterstitial() 
+boolean hasVideo()
+boolean showBanner() 
+boolean showInterstitial() 
+boolean showInterstitialVideo()
+boolean showVideo() 
+boolean hideBanner() 
+boolean hideInterstitial(Not Support)
 ```
 
-### 简单说明
+### Other
 
-该框架会自动按照权重分配广告，使用者只需要在Application里面配置好相关的广告信息就行了。如果需要动态刷新权重，可以调用ADEasy.changeWeight方法，group在ADInfo里面。
+If you need to refresh the weights, you can call the ADEasy.changeWeight method.
 
-### 版本更新日志
+### Change log
 
-0.9.0005 更新时间:2020-01-15
+0.9.0006 Date:2020-02-06
 
 ```
-支持ByteDance
+Fixed an issue where GDT ads would crash on Android 8.0.
+
+ADEasy:0005->0006
+1、Provide full screen theme (for configuring GDT ads)
+
+```
+
+0.9.0005 Date:2020-01-15
+
+```
+Support ByteDance
 
 ByteDance:2.8.0
 
 ADEasy:0003->0005
-1、修复广告Group在某些情况下出现错乱的问题。
-2、支持ByteDance
-3、修复GDT-插屏视频的hasAd判断不准确的问题。
+1、Fix the disorder problem of the ad group in some cases.
+2、Support ByteDance
+3、Fix the problem of inaccurate hasAd judgment of GDT-Interstitial Video.
 
 ```
 
 
-0.9.0003 更新时间:2020-01-12
+0.9.0003 Date:2020-01-12
 
 ```
-添加java调用示例。
+Add java example.
 
 ADEasy:0002->0003
-1、支持admob设置TYPE_INTERSTITIAL_VIDEO。
-2、对java方式调用进行一些友好性兼容。
+1、Support admob setting TYPE_INTERSTITIAL_VIDEO.
+2、Make some friendly compatibility for java method calls.
 
 ```
 
-0.9.0002 更新时间:2020-01-08
+0.9.0002 Date:2020-01-08
 
 ```
-插件更新日志：
-1、release模式下，强行关闭AdEasy的Debug开关。
+In release mode, forcibly disable the debugging of AdEasy.
 
 ADEasy:0001->0002
-1、支持unity-banner，优化banner显示逻辑，以及修复相关bug。
-2、支持自动化插件修改debug开关。
+1、Support unity-banner, optimize banner display logic, and fix related bugs.
+2、Support auto plugin to modify debug switch.
 
 ```
 
-0.9.0001 更新时间:2019-12-17
+0.9.0001 Date:2019-12-17
 
 ```
 

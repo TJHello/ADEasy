@@ -2,7 +2,7 @@
 
 **English** [https://github.com/TJHello/ADEasy/blob/master/README-EN.md](https://github.com/TJHello/ADEasy/blob/master/README-EN.md)
 
-# ADEasy(测试版)-自动集成说明
+# ADEasy(测试版)-集成说明
 
 ---
 一套全广告平台的快速集成框架。
@@ -48,7 +48,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:0.9.0005"
+        classpath "com.TJHello.plugins:ADEasy:0.9.0006"
       }
 }
 
@@ -211,7 +211,7 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
 
 ```
 
-### 使用示例([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))
+### 示例([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))
 
 ```kotlin
 
@@ -273,11 +273,21 @@ boolean hideBanner() //隐藏banner
 boolean hideInterstitial(暂不支持)
 ```
 
-### 简单说明
+### 其他
 
-该框架会自动按照权重分配广告，使用者只需要在Application里面配置好相关的广告信息就行了。如果需要动态刷新权重，可以调用ADEasy.changeWeight方法，group在ADInfo里面。
+如果需要动态刷新权重，可以调用ADEasy.changeWeight方法。
 
-### 版本更新日志
+### 更新日志
+
+0.9.0006 更新时间:2020-02-06
+
+```
+修复GDT广告在Android8.0上会闪退的问题。
+
+ADEasy:0005->0006
+1、提供全屏主题(用于配置GDT广告)
+
+```
 
 0.9.0005 更新时间:2020-01-15
 
