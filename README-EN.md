@@ -293,6 +293,7 @@ ByteDance:2.9.5.0
 Admob:19.0.1
 GDTSDK:4.190.1060
 Vungle:6.5.2
+Facebook:5.8.0
 ```
 
 0.9.00xx 
@@ -304,6 +305,7 @@ ByteDance:2.8.0
 Admob:18.3.0
 GDTSDK:4.110.980
 Vungle:6.5.2
+Facebook:5.6.0
 ```
 
 ### Change log
