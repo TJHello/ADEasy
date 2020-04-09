@@ -2,14 +2,14 @@
 
 **English** [https://github.com/TJHello/ADEasy/blob/master/README-EN.md](https://github.com/TJHello/ADEasy/blob/master/README-EN.md)
 
-# ADEasy(测试版)-自动集成说明
+# ADEasy(测试版)-集成说明
 
 ---
 一套全广告平台的快速集成框架。
 
-ADEasy的接入使用插件自动集成技术，只需要简单控制各个平台的开关，就能实现一条龙接入。同时，对于未接入的平台，我们不会携带其任何的的代码以及manifest声明，请放心使用。
+ADEasy使用了插件自动集成技术，只需要简单控制各个平台的开关，就能实现各平台接入。并且对于未接入的广告，不会有冗余的代码。
 
-当然，ADEasy本身也是有足够的优点的，功能上，它的权重系统能很好的提高聚合广告的收益。用法上，它统一了所有广告平台的接口，实现了简单统一的调用方式，完美利用kotlin的特性，给大家带来的是无比便捷的使用体验。
+当然，ADEasy本身也有足够的优点。功能上，它的权重系统能很好的提高聚合广告的收益。用法上，它统一了所有广告平台的接口，实现了简单统一的调用方式，完美利用kotlin的特性，给大家带来的是无比便捷的使用体验。
 
 **目前支持的广告平台:**
 
@@ -48,7 +48,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:0.9.0005"
+        classpath "com.TJHello.plugins:ADEasy:0.9.0109-a06"
       }
 }
 
@@ -212,7 +212,7 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
 
 ```
 
-### 使用示例([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))
+### 示例([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))
 
 ```kotlin
 
@@ -274,9 +274,9 @@ boolean hideBanner() //隐藏banner
 boolean hideInterstitial(暂不支持)
 ```
 
-### 简单说明
+### 其他
 
-该框架会自动按照权重分配广告，使用者只需要在Application里面配置好相关的广告信息就行了。如果需要动态刷新权重，可以调用ADEasy.changeWeight方法，group在ADInfo里面。
+如果需要动态刷新权重，可以调用ADEasy.changeWeight方法。
 
 ### SDK版本对应
 
@@ -304,27 +304,26 @@ Vungle:6.5.2
 
 
 
-0.9.00xx 
+### 更新日志
 
-Yomob:1.8.5
-MI:2.5.0
-Unity:3.3.0
-ByteDance:2.8.0
-Admob:18.3.0
-GDTSDK:4.110.980
-Vungle:6.5.2
-
-0.9.01xx
-Yomob:1.8.7
-MI:3.0.0
-Unity:3.3.0
-ByteDance:2.8.0
-Admob:18.3.0
-GDTSDK:4.110.980
-Vungle:6.5.2
+0.9.0109 更新时间:2020-04-09
+```
+更改包名，结构优化。
+修复个别情况下激励视频没有激励回调的问题。
+优化个别广告平台的广告加载逻辑。
+新增支持Vungle平台。
+```
 
 
-### 版本更新日志
+0.9.0006 更新时间:2020-02-06
+
+```
+修复GDT广告在Android8.0上会闪退的问题。
+
+ADEasy:0005->0006
+1、提供全屏主题(用于配置GDT广告)
+
+```
 
 0.9.0005 更新时间:2020-01-15
 
