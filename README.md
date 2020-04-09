@@ -27,11 +27,11 @@ Facebook(banner,interstitial,video)
 
 ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频))
 
+Vungle(banner,interstitial,video,interstitialVideo)
+
 **下一步打算支持的广告平台:**
 
 Baidu
-
-Vungle
 
 IronSource
 
@@ -69,7 +69,7 @@ apply plugin: 'ad-easy'
 
 ADEasyExt{
     adSwitch = true  //广告总开关
-    debug = true //该开关关联广告debug开关，正式版必须要设置为false,0.9.0002开始，release版本会自动设置为false
+    debug = true //该开关关联广告debug开关，release版会自动设置为false
     //以下参数选择性填写，默认false
     adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填，并且更改成正确的id，否则admob会闪退。
     adMob = true //admob开关
@@ -79,6 +79,7 @@ ADEasyExt{
     adGdt = true //腾讯优量汇(广点通)开关
     adFacebook = true//Facebook开关
     adByteDance = false//ByteDance(穿山甲)开关
+    adVungle = false//Vungle开关
 }
 
 android {
@@ -278,6 +279,30 @@ boolean hideInterstitial(暂不支持)
 该框架会自动按照权重分配广告，使用者只需要在Application里面配置好相关的广告信息就行了。如果需要动态刷新权重，可以调用ADEasy.changeWeight方法，group在ADInfo里面。
 
 ### SDK版本对应
+
+0.9.01xx
+```
+Yomob:1.8.7
+MI:3.0.0
+Unity:3.3.0
+ByteDance:2.9.5.0
+Admob:19.0.1
+GDTSDK:4.190.1060
+Vungle:6.5.2
+```
+
+0.9.00xx 
+```
+Yomob:1.8.5
+MI:2.5.0
+Unity:3.3.0
+ByteDance:2.8.0
+Admob:18.3.0
+GDTSDK:4.110.980
+Vungle:6.5.2
+```
+
+
 
 0.9.00xx 
 

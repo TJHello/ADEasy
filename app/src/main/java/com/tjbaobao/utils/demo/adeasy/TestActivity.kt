@@ -2,7 +2,7 @@ package com.tjbaobao.utils.demo.adeasy
 
 import android.os.Bundle
 import android.view.ViewGroup
-import com.tjbaobao.utils.adeasy.utils.LogUtil
+import com.tjhello.adeasy.utils.LogUtil
 import kotlinx.android.synthetic.main.test_activity_layout.*
 
 /**

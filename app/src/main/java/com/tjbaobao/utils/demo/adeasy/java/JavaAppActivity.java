@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.tjbaobao.utils.adeasy.ADEasy;
-import com.tjbaobao.utils.adeasy.imp.ADEasyActivityImp;
-import com.tjbaobao.utils.adeasy.info.ADInfo;
+import com.tjhello.adeasy.ADEasy;
+import com.tjhello.adeasy.imp.ADEasyActivityImp;
+import com.tjhello.adeasy.info.ADInfo;
 
 import org.jetbrains.annotations.NotNull;
 

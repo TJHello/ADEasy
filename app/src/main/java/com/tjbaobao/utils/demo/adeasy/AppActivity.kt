@@ -3,8 +3,8 @@ package com.tjbaobao.utils.demo.adeasy
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.tjbaobao.utils.adeasy.ADEasy
-import com.tjbaobao.utils.adeasy.imp.ADEasyActivityImp
+import com.tjhello.adeasy.ADEasy
+import com.tjhello.adeasy.imp.ADEasyActivityImp
 
 /**
  * 作者:天镜baobao
@@ -25,7 +25,7 @@ import com.tjbaobao.utils.adeasy.imp.ADEasyActivityImp
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
+abstract class AppActivity : AppCompatActivity(), ADEasyActivityImp {
 
     protected val adEasy by lazy { ADEasy.getInstance(this,this) }
 

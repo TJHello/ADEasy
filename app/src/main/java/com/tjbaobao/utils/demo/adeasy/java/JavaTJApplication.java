@@ -6,10 +6,10 @@ import android.content.pm.PackageManager;
 
 import androidx.multidex.MultiDex;
 
-import com.tjbaobao.utils.adeasy.ADEasy;
-import com.tjbaobao.utils.adeasy.imp.ADEasyApplicationImp;
-import com.tjbaobao.utils.adeasy.info.ADInfo;
-import com.tjbaobao.utils.adeasy.info.config.ADAppConfig;
+import com.tjhello.adeasy.ADEasy;
+import com.tjhello.adeasy.imp.ADEasyApplicationImp;
+import com.tjhello.adeasy.info.ADInfo;
+import com.tjhello.adeasy.info.config.ADAppConfig;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

@@ -3,10 +3,10 @@ package com.tjbaobao.utils.demo.adeasy
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
-import com.tjbaobao.utils.adeasy.ADEasy
-import com.tjbaobao.utils.adeasy.imp.ADEasyApplicationImp
-import com.tjbaobao.utils.adeasy.info.ADInfo
-import com.tjbaobao.utils.adeasy.info.config.ADAppConfig
+import com.tjhello.adeasy.ADEasy
+import com.tjhello.adeasy.imp.ADEasyApplicationImp
+import com.tjhello.adeasy.info.ADInfo
+import com.tjhello.adeasy.info.config.ADAppConfig
 
 /**
  * 作者:天镜baobao
@@ -27,7 +27,7 @@ import com.tjbaobao.utils.adeasy.info.config.ADAppConfig
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-class TJApplication : Application(),ADEasyApplicationImp{
+class TJApplication : Application(), ADEasyApplicationImp {
 
     override fun onCreate() {
         super.onCreate()
@@ -66,9 +66,9 @@ class TJApplication : Application(),ADEasyApplicationImp{
                 return ADAppConfig.createAdmob()
                     .initWeight(10)
                     .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
-                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
-                    .addParameter("ca-app-pub-3940256099942544/8691691433",ADInfo.TYPE_INTERSTITIAL_VIDEO)
-                    .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)
+                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
+                    .addParameter("ca-app-pub-3940256099942544/8691691433",ADInfo.TYPE_INTERSTITIAL_VIDEO)//测试id
+                    .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)//测试id
                     //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
 //                    .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
             }

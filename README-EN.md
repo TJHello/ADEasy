@@ -33,11 +33,11 @@ Facebook(banner,interstitial,video)
 
 ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频))
 
+Vungle(banner,interstitial,video,interstitialVideo)
+
 **Ad platforms that we plan to support next:**
 
 Baidu
-
-Vungle
 
 IronSource
 
@@ -54,7 +54,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:0.9.0006"
+        classpath "com.TJHello.plugins:ADEasy:0.9.0109-a06"
       }
 }
 
@@ -84,6 +84,7 @@ ADEasyExt{
     adGdt = true //GDT
     adFacebook = true//Facebook
     adByteDance = false//ByteDance
+    adVungle = false //Vungle
 }
 
 android {
@@ -281,7 +282,40 @@ boolean hideInterstitial(Not Support)
 
 If you need to refresh the weights, you can call the ADEasy.changeWeight method.
 
+### AD Version
+
+0.9.01xx
+```
+Yomob:1.8.7
+MI:3.0.0
+Unity:3.3.0
+ByteDance:2.9.5.0
+Admob:19.0.1
+GDTSDK:4.190.1060
+Vungle:6.5.2
+```
+
+0.9.00xx 
+```
+Yomob:1.8.5
+MI:2.5.0
+Unity:3.3.0
+ByteDance:2.8.0
+Admob:18.3.0
+GDTSDK:4.110.980
+Vungle:6.5.2
+```
+
 ### Change log
+
+0.9.0109 Date:2020-04-09
+```
+Change the package name and optimize the structure.
+Fix the problem that the incentive video has no incentive callback in some cases.
+Optimize the loading logic of ads for individual advertising platforms.
+support for Vungle platform.
+```
+
 
 0.9.0006 Date:2020-02-06
 
