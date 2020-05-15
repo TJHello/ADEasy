@@ -7,6 +7,9 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 
 import com.tjbaobao.utils.demo.adeasy.R;
+import com.tjhello.adeasy.info.ADInfo;
+
+import org.jetbrains.annotations.NotNull;
 
 import kotlin.Unit;
 
@@ -47,7 +50,9 @@ public class JavaMainActivity extends JavaAppActivity {
 
         btShowVideo.setOnClickListener(v->{
             adEasy.showVideo((adInfo, aBoolean) -> {
+
                 //看视频完成回调
+
                 return Unit.INSTANCE;
             });
         });
@@ -79,4 +84,17 @@ public class JavaMainActivity extends JavaAppActivity {
     void onLoadData() {
 
     }
+
+    @Override
+    public void onAdClose(@NotNull ADInfo adInfo, boolean isReward) {
+        super.onAdClose(adInfo, isReward);
+
+    }
+
+    @Override
+    public void onAdLoad(@NotNull ADInfo adInfo, boolean isSelf) {
+        super.onAdLoad(adInfo, isSelf);
+    }
+
+
 }

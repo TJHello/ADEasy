@@ -18,6 +18,8 @@ class MainActivity : AppActivity() {
         * adEasy.hangLifeDown()
         *
         */
+
+        adEasy.closeAD()
     }
 
     override fun onInitView() {
