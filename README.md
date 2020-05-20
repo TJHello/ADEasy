@@ -69,7 +69,7 @@ allprojects {
 }
 
 ```
-- ### Step2 启动插件，配置参数到（[build.gradle(app)](https://github.com/TJHello/ADEasy/blob/master/app/build.gradle)）
+- ### Step2 启动插件，配置参数到[build.gradle(app)](https://github.com/TJHello/ADEasy/blob/master/app/build.gradle)
 
 
 ```groovy
@@ -229,8 +229,6 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
         return isFinishing
     }
     
-    //退出应用时请调用 ADEasy.exitApp(context)
-
 }
 
 ```
@@ -279,6 +277,9 @@ class TestActivity : AppActivity() {
     override fun onCreateBanner(): ViewGroup? {
         return bannerLayout
     }
+
+    //退出应用时请调用 ADEasy.exitApp(context)
+
 }
 
 ```
