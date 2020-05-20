@@ -2,6 +2,8 @@
 
 **English** [https://github.com/TJHello/ADEasy/blob/master/README-EN.md](https://github.com/TJHello/ADEasy/blob/master/README-EN.md)
 
+**其他工具说明** [https://github.com/TJHello/ADEasy/blob/master/README-TOOLS.md](https://github.com/TJHello/ADEasy/blob/master/README-TOOLS.md)
+
 # ADEasy(测试版)-集成说明
 
 **QQ交流群(425219113)**
@@ -327,9 +329,9 @@ void closeAD() //关闭当前页面的广告功能，需要在adEasy.,需要在a
 
 a01->测试版本号
 
-a:alpha测试(可以尝试性使用)
+a:alpha测试(经过了内部项目真实环境验证)
 
-b:bate测试(经过了初步真实环境验证)
+b:bate测试(经过了客户真实环境验证)
 
 t:内部测试
 
