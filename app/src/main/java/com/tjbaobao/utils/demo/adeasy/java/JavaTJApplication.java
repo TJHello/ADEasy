@@ -41,7 +41,7 @@ public class JavaTJApplication extends Application implements ADEasyApplicationI
     public void onCreate() {
         super.onCreate();
         ADEasy.setDebug(true);//重要！！！发行版本必须设置为false
-        ADEasy.Companion.setChannel(ADChannel.Order);
+        ADEasy.setChannel(ADChannel.Order);
         ADEasy.toOfflineMode();
         ADEasyLog.addFilterType(
                 ADEasyLog.TYPE_HANDLER_BASE,
