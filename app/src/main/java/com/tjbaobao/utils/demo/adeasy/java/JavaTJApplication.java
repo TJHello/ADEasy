@@ -7,9 +7,11 @@ import android.content.pm.PackageManager;
 import androidx.multidex.MultiDex;
 
 import com.tjhello.adeasy.ADEasy;
+import com.tjhello.adeasy.anno.ADChannel;
 import com.tjhello.adeasy.imp.ADEasyApplicationImp;
 import com.tjhello.adeasy.info.ADInfo;
-import com.tjhello.adeasy.info.config.ADAppConfig;
+import com.tjhello.adeasy.info.config.base.ADAppConfig;
+import com.tjhello.adeasy.utils.ADEasyLog;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -39,6 +41,13 @@ public class JavaTJApplication extends Application implements ADEasyApplicationI
     public void onCreate() {
         super.onCreate();
         ADEasy.setDebug(true);//重要！！！发行版本必须设置为false
+        ADEasy.Companion.setChannel(ADChannel.Order);
+        ADEasy.toOfflineMode();
+        ADEasyLog.addFilterType(
+                ADEasyLog.TYPE_HANDLER_BASE,
+                ADEasyLog.TYPE_ADEASY_DETAILED_STEPS,
+                ADEasyLog.TYPE_TOOLS_UMENG
+        );
         ADEasy.init(this,this);
     }
 

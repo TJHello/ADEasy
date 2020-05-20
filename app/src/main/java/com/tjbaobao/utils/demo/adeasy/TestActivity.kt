@@ -2,7 +2,7 @@ package com.tjbaobao.utils.demo.adeasy
 
 import android.os.Bundle
 import android.view.ViewGroup
-import com.tjhello.adeasy.utils.LogUtil
+import android.widget.Toast
 import kotlinx.android.synthetic.main.test_activity_layout.*
 
 /**
@@ -34,17 +34,17 @@ class TestActivity : AppActivity() {
         setContentView(R.layout.test_activity_layout)
         btShowVideo.setOnClickListener {
             adEasy.showVideo{adInfo, isReward ->
-                LogUtil.i("[showVideo]:callback:$isReward")
+                Toast.makeText(this,"Close Video :$isReward", Toast.LENGTH_LONG).show()
             }
         }
         btShowInterstitialVideo.setOnClickListener {
             adEasy.showInterstitialVideo {
-                LogUtil.i("[showInterstitialVideo]:callback")
+                Toast.makeText(this,"Close InterstitialVideo",Toast.LENGTH_LONG).show()
             }
         }
         btShowInterstitial.setOnClickListener {
             adEasy.showInterstitial {
-                LogUtil.i("[showInterstitial]:callback")
+                Toast.makeText(this,"Close Interstitial",Toast.LENGTH_LONG).show()
             }
         }
 

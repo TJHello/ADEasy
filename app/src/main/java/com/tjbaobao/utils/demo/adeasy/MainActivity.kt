@@ -3,14 +3,16 @@ package com.tjbaobao.utils.demo.adeasy
 import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
-import com.tjhello.adeasy.utils.LogUtil
+import android.widget.Toast
+import com.tjhello.adeasy.ADEasy
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppActivity() {
 
     override fun onInitValue(savedInstanceState: Bundle?) {
         adEasy.notShowInterstitialOnce()//首页进来，免一次插屏广告
-
+        adEasy.isAutoShowInterstitial(true)
+        adEasy.isAutoShowBanner(true)
         //如果有隐私协议或年龄选择弹窗，可以调用以下方法挂起生命周期
         /*
         * adEasy.hangLifeUp()
@@ -27,17 +29,17 @@ class MainActivity : AppActivity() {
 
         btShowVideo.setOnClickListener {
             adEasy.showVideo{adInfo, isReward ->
-                LogUtil.i("[showVideo]:callback:$isReward")
+                Toast.makeText(this,"Close Video :$isReward", Toast.LENGTH_LONG).show()
             }
         }
         btShowInterstitialVideo.setOnClickListener {
             adEasy.showInterstitialVideo {
-                LogUtil.i("[showInterstitialVideo]:callback")
+                Toast.makeText(this,"Close InterstitialVideo",Toast.LENGTH_LONG).show()
             }
         }
         btShowInterstitial.setOnClickListener {
             adEasy.showInterstitial {
-                LogUtil.i("[showInterstitial]:callback")
+                Toast.makeText(this,"Close Interstitial",Toast.LENGTH_LONG).show()
             }
         }
         btNextActivity.setOnClickListener {
@@ -54,5 +56,10 @@ class MainActivity : AppActivity() {
      */
     override fun onCreateBanner(): ViewGroup? {
         return null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ADEasy.exitApp(this)
     }
 }

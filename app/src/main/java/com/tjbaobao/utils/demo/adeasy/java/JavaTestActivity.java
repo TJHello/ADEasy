@@ -1,6 +1,7 @@
 package com.tjbaobao.utils.demo.adeasy.java;
 
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
@@ -33,6 +34,7 @@ public class JavaTestActivity extends JavaAppActivity {
     @Override
     void onInitValue(@Nullable Bundle savedInstanceState) {
         adEasy.isAutoShowBanner(true);
+        adEasy.isAutoShowInterstitial(true);
     }
 
     @Override
@@ -81,5 +83,11 @@ public class JavaTestActivity extends JavaAppActivity {
     @Override
     void onLoadData() {
 
+    }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    public ViewGroup onCreateBanner() {
+        return findViewById(R.id.bannerLayout);
     }
 }

@@ -7,16 +7,24 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'ad-easy'
 
 ADEasyExt{
+    appKey = ""//开启在线功能步骤，http://note.youdao.com/noteshare?id=5e4e0ee01ff859ac126ecef3d3157221
+    appToken = ""
     adSwitch = true
-    debug = true
-    adMobId = "ca-app-pub-7555156208216777~2135772583"//测试id
-    adMob = true
-    adYomob = true
-    adUnity = true
-    adMi = true
-    adGdt = true
-    adFacebook = true
+    inChina = true//必须-国内true-国外false
+    debug = true//该开关关联广告debug开关，release版会自动设置为false
+    //以下参数选择性填写，默认false
+//    adMobId = "ca-app-pub-7555156208216777~2135772583"//测试id
+//    adMob = true
+    adYomob = false
+    adUnity = false
+    adMi = false
+    adGdt = false
+    adFacebook = false
     adByteDance = false
+    adVungle = false
+//    abTest = true //ABTest开关 https://github.com/TJHello/ABTest
+//    umeng = ['key'] //是否让ADEasy托管友盟,['key','deviceType(可选，默认1)','pushSecret(可选，默认null)']
+//    exclude = ['xxxx'] //例外掉某个包
 }
 
 android {
@@ -54,9 +62,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 

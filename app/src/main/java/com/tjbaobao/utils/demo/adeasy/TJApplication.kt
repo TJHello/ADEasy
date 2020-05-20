@@ -4,9 +4,11 @@ import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
 import com.tjhello.adeasy.ADEasy
+import com.tjhello.adeasy.anno.ADChannel
 import com.tjhello.adeasy.imp.ADEasyApplicationImp
 import com.tjhello.adeasy.info.ADInfo
-import com.tjhello.adeasy.info.config.ADAppConfig
+import com.tjhello.adeasy.info.config.base.ADAppConfig
+import com.tjhello.adeasy.utils.ADEasyLog
 
 /**
  * 作者:天镜baobao
@@ -31,7 +33,14 @@ class TJApplication : Application(), ADEasyApplicationImp {
 
     override fun onCreate() {
         super.onCreate()
-        ADEasy.setDebug(true)//这个关系到广告的测试模式，正式版必须关闭。入使用了自动集成0.9.0002版本开始，release模式下，会强行设置为false
+        ADEasy.setDebug(true)//这个关系到广告的测试模式，如使用自动集成插件，release模式下，会强行设置为false
+        ADEasy.channel = ADChannel.Order
+        ADEasy.toOfflineMode()
+        ADEasyLog.addFilterType(
+            ADEasyLog.TYPE_HANDLER_BASE,
+            ADEasyLog.TYPE_ADEASY_DETAILED_STEPS,
+            ADEasyLog.TYPE_TOOLS_UMENG
+        )
         ADEasy.init(this,this)
     }
 
@@ -63,12 +72,12 @@ class TJApplication : Application(), ADEasyApplicationImp {
 //                    .addParameter("interstitial",ADInfo.TYPE_INTERSTITIAL_VIDEO)
             }
             ADInfo.GROUP_ADMOB->{
-                return ADAppConfig.createAdmob()
-                    .initWeight(10)
-                    .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
-                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
-                    .addParameter("ca-app-pub-3940256099942544/8691691433",ADInfo.TYPE_INTERSTITIAL_VIDEO)//测试id
-                    .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)//测试id
+//                return ADAppConfig.createAdmob()
+//                    .initWeight(10)
+//                    .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
+//                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
+//                    .addParameter("ca-app-pub-3940256099942544/8691691433",ADInfo.TYPE_INTERSTITIAL_VIDEO)//测试id
+//                    .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)//测试id
                     //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
 //                    .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
             }

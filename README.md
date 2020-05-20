@@ -4,7 +4,7 @@
 
 # ADEasy(测试版)-集成说明
 
-QQ交流群(425219113)
+**QQ交流群(425219113)**
 
 ---
 一套全平台的广告聚合SDK快速集成框架。
@@ -57,7 +57,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:3.1.xxxx"
+        classpath "com.TJHello.plugins:ADEasy:3.1.1303-t10"
       }
 }
 
@@ -69,7 +69,7 @@ allprojects {
 }
 
 ```
-- ### Step2 启动插件，配置参数到build.gradle(app)
+- ### Step2 启动插件，配置参数到（[build.gradle(app)](https://github.com/TJHello/ADEasy/blob/master/app/build.gradle)）
 
 
 ```groovy
@@ -81,8 +81,8 @@ ADEasyExt{
     inChina = true //必须-国内true-国外false
     debug = true //该开关关联广告debug开关，release版会自动设置为false
     //以下参数选择性填写，默认false
-    adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填，并且更改成正确的id，否则admob会闪退。
-    adMob = true //admob开关
+    //adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填，并且更改成正确的id，否则admob会闪退。
+    //adMob = true //admob开关
     adYomob = true //yomob开关
     adUnity = true //unity开关
     adMi = true //mi广告开关
@@ -90,7 +90,9 @@ ADEasyExt{
     adFacebook = true//Facebook开关
     adByteDance = false//ByteDance(穿山甲)开关
     adVungle = false//Vungle开关
-    // exclude = ['xxxx'] //例外掉某个包
+    //umeng = ['key'] //是否让ADEasy托管友盟,['key','deviceType(可选，默认1)','pushSecret(可选，默认null)']
+    //abTest = true //ABTest开关 https://github.com/TJHello/ABTest
+    //exclude = ['xxxx'] //例外掉某个包
 }
 
 android {
@@ -115,7 +117,7 @@ dependencies {
 
 ```
 
-- ### Step3 配置Application（[TJApplication](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TJApplication.kt)）
+- ### Step3 配置Application（[TJApplication.kt](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TJApplication.kt)）（[TJApplication.java](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/java/JavaTJApplication.java)）
 
 ```kotlin
 class TJApplication : Application(),ADEasyApplicationImp{
@@ -123,7 +125,13 @@ class TJApplication : Application(),ADEasyApplicationImp{
     override fun onCreate() {
         super.onCreate()
         ADEasy.setDebug(true)
+        ADEasy.channel = ADChannel.Order//关联友盟渠道与某些广告平台的渠道
         ADEasy.toOfflineMode()//离线模式
+        ADEasyLog.addFilterType(
+            ADEasyLog.TYPE_HANDLER_BASE,
+            ADEasyLog.TYPE_ADEASY_DETAILED_STEPS,
+            ADEasyLog.TYPE_TOOLS_UMENG
+        )
         ADEasy.init(this,this)
     }
 
@@ -156,7 +164,7 @@ class TJApplication : Application(),ADEasyApplicationImp{
 }
 ```
 
-- ### Step4 配置AppActivity（[AppActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/AppActivity.kt)）
+- ### Step4 配置AppActivity（[AppActivity.kt](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/AppActivity.kt)）（[AppActivity.java](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/java/JavaAppActivity.java)）
 
 
 ```kotlin
@@ -220,11 +228,14 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
     override fun isActivityFinish(): Boolean {
         return isFinishing
     }
+    
+    //退出应用时请调用 ADEasy.exitApp(context)
+
 }
 
 ```
 
-### 示例([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))
+### 示例([TestActivity.kt](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))([TestActivity.java](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/java/JavaTestActivity.java))
 
 ```kotlin
 
@@ -238,17 +249,17 @@ class TestActivity : AppActivity() {
         setContentView(R.layout.test_activity_layout)
         btShowVideo.setOnClickListener {
             adEasy.showVideo{adInfo, isReward ->
-                LogUtil.i("[showVideo]:callback:$isReward")
+               Toast.makeText(this,"Close Video :$isReward", Toast.LENGTH_LONG).show()
             }
         }
         btShowInterstitialVideo.setOnClickListener {
             adEasy.showInterstitialVideo {
-                LogUtil.i("[showInterstitialVideo]:callback")
+                Toast.makeText(this,"Close InterstitialVideo",Toast.LENGTH_LONG).show()
             }
         }
         btShowInterstitial.setOnClickListener {
             adEasy.showInterstitial {
-                LogUtil.i("[showInterstitial]:callback")
+                Toast.makeText(this,"Close Interstitial",Toast.LENGTH_LONG).show()
             }
         }
 
@@ -287,7 +298,9 @@ boolean hideBanner() //隐藏banner
 void hangLifeUp() //挂起生命周期,用于弹起隐私协议等场景,需要在adEasy.onCreate前调用
 void hangLifeDown() //放下挂起的生命周期，继续执行
 void notShowInterstitialOnce() //忽略一次插屏显示请求，用于第一次进入首页不要显示插屏的场景,需要在adEasy.onCreate前调用
-void closeAD() //关闭当前页面的广告功能，需要在adEasy.onCreate前调用
+void isAutoShowBanner() //当前页面是否自动显示Banner,需要在adEasy.onCreate前调用
+void isAutoShowInterstitial()//当前页面是否自动显示插屏,需要在adEasy.onCreate前调用
+void closeAD() //关闭当前页面的广告功能，需要在adEasy.,需要在adEasy.onCreate前调用
 
 ```
 
@@ -317,7 +330,7 @@ a:alpha测试(可以尝试性使用)
 
 b:bate测试(经过了初步真实环境验证)
 
-t:内部测试(开发者随便修改上传，没有任何可用性)
+t:内部测试
 
 ```
 
@@ -325,37 +338,47 @@ t:内部测试(开发者随便修改上传，没有任何可用性)
 
 ### SDK版本对应
 
+x.1.xxxx
+```
+Yomob:1.8.7
+MI:3.0.0
+Unity:3.3.0
+ByteDance:2.9.5.0
+Admob:19.0.1
+GDTSDK:4.190.1060
+Vungle:6.5.2
+Facebook:5.8.0
+```
+x.0.xxxx
+```
+Yomob:1.8.5
+MI:2.5.0
+Unity:3.3.0
+ByteDance:2.8.0
+Admob:18.3.0
+GDTSDK:4.110.980
+Vungle:6.5.2
+Facebook:5.6.0
+```
+
 
 
 ### 主程序更新日志
 
-1303-t01 更新时间2020-05-14
-
-准备搭建用户系统。
-
-1203-t02 
-
-1102-t02
+1303-t10 更新时间2020-05-20(情人节)
 ```
-实现线程调度系统
-修复bug
-```
-
-1101-t04 
-```
-实现线程调度系统
-修复bug
-```
-
-1001-t10 更新时间:2020-04-25
-```
-构架调整，基于在线功能
-修复bug
-调整个别算法流程
+1、新增广告加载线程调度功能
+2、新增在线配置功能
+3、新增日志打印分级分类功能
+4、新增自动化托管友盟的功能
+5、新增支持ABTest的功能
+6、修复若干bug，大量优化
 ```
 
 
 0.9.xxxx 更新时间:2020-04-09 
-
+```
 该命名方式已经遗弃，不再维护
+```
+
 

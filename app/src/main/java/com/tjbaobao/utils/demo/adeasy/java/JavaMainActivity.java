@@ -38,6 +38,8 @@ public class JavaMainActivity extends JavaAppActivity {
     @Override
     void onInitValue(@Nullable Bundle savedInstanceState) {
         adEasy.notShowInterstitialOnce();//首次打开，不显示插屏广告一次
+        adEasy.isAutoShowBanner(true);
+        adEasy.isAutoShowInterstitial(true);
     }
 
     @Override
