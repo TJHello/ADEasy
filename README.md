@@ -2,6 +2,8 @@
 
 **English** [https://github.com/TJHello/ADEasy/blob/master/README-EN.md](https://github.com/TJHello/ADEasy/blob/master/README-EN.md)
 
+**手动集成文档(海外平台)** [https://github.com/TJHello/ADEasy/blob/master/README-MANUAL.md](https://github.com/TJHello/ADEasy/blob/master/README-MANUAL.md)
+
 **其他工具说明** [https://github.com/TJHello/ADEasy/blob/master/README-TOOLS.md](https://github.com/TJHello/ADEasy/blob/master/README-TOOLS.md)
 
 # ADEasy(测试版)-集成说明
