@@ -6,7 +6,7 @@
 
 **其他工具说明** [https://github.com/TJHello/ADEasy/blob/master/README-TOOLS.md](https://github.com/TJHello/ADEasy/blob/master/README-TOOLS.md)
 
-# ADEasy(测试版)-集成说明
+# ADEasy-自动集成说明
 
 **QQ交流群(425219113)**
 

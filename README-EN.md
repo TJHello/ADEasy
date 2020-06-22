@@ -2,7 +2,7 @@
 
 **English** [https://github.com/TJHello/ADEasy/blob/master/README-EN.md](https://github.com/TJHello/ADEasy/blob/master/README-EN.md)
 
-# ADEasy(Alpha)-Automatic integration
+# ADEasy-Automatic integration
 
 ---
 A fast integration framework for a all advertising platform.
