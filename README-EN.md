@@ -27,11 +27,11 @@ Mi(banner,interstitial,video)
 
 Yomob(interstitial,video,interstitialVideo)
 
-GDT(腾讯优量汇)(banner2.0,插屏2.0,激励视频)
+GDT(interstitial,video,interstitialVideo)
 
 Facebook(banner,interstitial,video)
 
-ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频))
+ByteDance(banner,interstitial,video,interstitialVideo)
 
 Vungle(banner,interstitial,video,interstitialVideo)
 
@@ -54,7 +54,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:0.9.0109-a06"
+        classpath "com.TJHello.plugins:ADEasy:3.1.1303-t10"
       }
 }
 
@@ -76,15 +76,19 @@ apply plugin: 'ad-easy'
 ADEasyExt{
     adSwitch = true  //Master switch
     debug = true //Test mode(Automatically set to false in relearse mode)
+    inChina = false //much be
     adMobId = "ca-app-pub-755515620*****~*****61045" //adMob id
     adMob = true //admob
     adYomob = true //yomob
     adUnity = true //unity
+    adVungle = false//Vungle
     adMi = true //mi
     adGdt = true //GDT
     adFacebook = true//Facebook
     adByteDance = false//ByteDance
-    adVungle = false //Vungle
+    //abTest = true //ABTest switch https://github.com/TJHello/ABTest
+    //exclude = ['xxxx'] //exclude package
+
 }
 
 android {
@@ -117,6 +121,14 @@ class TJApplication : Application(),ADEasyApplicationImp{
     override fun onCreate() {
         super.onCreate()
         ADEasy.setDebug(true)
+        ADEasy.init(this,this)
+        ADEasy.channel = ADChannel.Order
+        ADEasy.toOfflineMode()//Offline Mode
+        ADEasyLog.addFilterType(
+            ADEasyLog.TYPE_HANDLER_BASE,
+            ADEasyLog.TYPE_ADEASY_DETAILED_STEPS,
+            ADEasyLog.TYPE_TOOLS_UMENG
+        )
         ADEasy.init(this,this)
     }
 
@@ -282,9 +294,8 @@ boolean hideInterstitial(Not Support)
 
 If you need to refresh the weights, you can call the ADEasy.changeWeight method.
 
-### AD Version
-
-0.9.01xx
+### AD SDK Version
+x.1.xxxx
 ```
 Yomob:1.8.7
 MI:3.0.0
@@ -295,8 +306,7 @@ GDTSDK:4.190.1060
 Vungle:6.5.2
 Facebook:5.8.0
 ```
-
-0.9.00xx 
+x.0.xxxx
 ```
 Yomob:1.8.5
 MI:2.5.0
@@ -310,71 +320,15 @@ Facebook:5.6.0
 
 ### Change log
 
-0.9.0109 Date:2020-04-09
+1303-t10 date:2020-05-20(Valentine's Day)
 ```
-Change the package name and optimize the structure.
-Fix the problem that the incentive video has no incentive callback in some cases.
-Optimize the loading logic of ads for individual advertising platforms.
-support for Vungle platform.
-```
-
-
-0.9.0006 Date:2020-02-06
-
-```
-Fixed an issue where GDT ads would crash on Android 8.0.
-
-ADEasy:0005->0006
-1、Provide full screen theme (for configuring GDT ads)
-
-```
-
-0.9.0005 Date:2020-01-15
-
-```
-Support ByteDance
-
-ByteDance:2.8.0
-
-ADEasy:0003->0005
-1、Fix the disorder problem of the ad group in some cases.
-2、Support ByteDance
-3、Fix the problem of inaccurate hasAd judgment of GDT-Interstitial Video.
-
+1、Add ad loading thread scheduling function
+2、Add online mode
+3、Order
 ```
 
 
-0.9.0003 Date:2020-01-12
-
+0.9.xxxx date:2020-04-09 
 ```
-Add java example.
-
-ADEasy:0002->0003
-1、Support admob setting TYPE_INTERSTITIAL_VIDEO.
-2、Make some friendly compatibility for java method calls.
-
-```
-
-0.9.0002 Date:2020-01-08
-
-```
-In release mode, forcibly disable the debugging of AdEasy.
-
-ADEasy:0001->0002
-1、Support unity-banner, optimize banner display logic, and fix related bugs.
-2、Support auto plugin to modify debug switch.
-
-```
-
-0.9.0001 Date:2019-12-17
-
-```
-
-ADEasy:0001
-Unity:3.3.0
-GDTSDK:4.110.980
-Yomob:1.8.5
-AdMob:18.3.0
-MI:2.5.0
-
+Abandoned
 ```
