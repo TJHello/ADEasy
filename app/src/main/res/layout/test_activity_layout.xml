@@ -18,39 +18,39 @@
             android:id="@+id/btShowVideo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="显示视频" />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btShowInterstitialVideo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="显示插屏视频"/>
+            android:text="@string/show_video" />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btShowInterstitial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="显示插屏" />
-
+            android:text="@string/show_ins" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btShowInterstitialVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_ins_video"/>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btShowBanner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="显示Banner" />
+            android:text="@string/show_banner" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btHideBanner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="隐藏banner" />
+            android:text="@string/hide_banner" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <RelativeLayout
         android:id="@+id/bannerLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:gravity="center"
+        android:background="#acacac"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

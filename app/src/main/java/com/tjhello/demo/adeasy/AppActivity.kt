@@ -1,4 +1,4 @@
-package com.tjbaobao.utils.demo.adeasy
+package com.tjhello.demo.adeasy
 
 import android.content.Intent
 import android.os.Bundle

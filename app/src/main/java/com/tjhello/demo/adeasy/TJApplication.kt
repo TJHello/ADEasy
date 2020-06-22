@@ -1,4 +1,4 @@
-package com.tjbaobao.utils.demo.adeasy
+package com.tjhello.demo.adeasy
 
 import android.app.Application
 import android.content.Context

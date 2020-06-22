@@ -1,4 +1,4 @@
-package com.tjbaobao.utils.demo.adeasy
+package com.tjhello.demo.adeasy
 
 import org.junit.Test
 

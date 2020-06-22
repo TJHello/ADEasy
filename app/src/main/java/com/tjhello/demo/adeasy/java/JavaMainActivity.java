@@ -1,4 +1,4 @@
-package com.tjbaobao.utils.demo.adeasy.java;
+package com.tjhello.demo.adeasy.java;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
-import com.tjbaobao.utils.demo.adeasy.R;
 import com.tjhello.adeasy.info.ADInfo;
+import com.tjhello.demo.adeasy.R;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -34,49 +34,56 @@ import kotlin.Unit;
  */
 public class JavaMainActivity extends JavaAppActivity {
 
+    private Button btShowVideo ;
+    private Button btShowInterstitialVideo ;
+    private Button btShowInterstitial ;
+    private Button btShowBanner ;
+
 
     @Override
     void onInitValue(@Nullable Bundle savedInstanceState) {
         adEasy.notShowInterstitialOnce();//首次打开，不显示插屏广告一次
-        adEasy.isAutoShowBanner(true);
-        adEasy.isAutoShowInterstitial(true);
     }
 
     @Override
     void onInitView() {
         setContentView(R.layout.activity_main);
-        Button btShowVideo = this.findViewById(R.id.btShowVideo);
-        Button btShowInterstitialVideo = this.findViewById(R.id.btShowInterstitialVideo);
-        Button btShowInterstitial = this.findViewById(R.id.btShowInterstitial);
+        btShowVideo = this.findViewById(R.id.btShowVideo);
+        btShowInterstitialVideo = this.findViewById(R.id.btShowInterstitialVideo);
+        btShowInterstitial = this.findViewById(R.id.btShowInterstitial);
+        btShowBanner = this.findViewById(R.id.btShowBanner);
         Button btNextActivity = this.findViewById(R.id.btNextActivity);
+
+        //刷新按钮的UI状态
+        refreshBtVideo();
+        refreshBtIns();
+        refreshBtInsVideo();
+        refreshBtBanner();
 
         btShowVideo.setOnClickListener(v->{
             adEasy.showVideo((adInfo, aBoolean) -> {
-
                 //看视频完成回调
-
+                refreshBtVideo();
                 return Unit.INSTANCE;
             });
         });
-
         btShowInterstitialVideo.setOnClickListener(v->{
             adEasy.showInterstitialVideo((adInfo) -> {
-
                 //看插屏视频完成回调
-
+                refreshBtInsVideo();
                 return Unit.INSTANCE;
             });
         });
-
         btShowInterstitial.setOnClickListener(v->{
             adEasy.showInterstitial((adInfo) -> {
-
                 //看插屏完成回调
-
+                refreshBtIns();
                 return Unit.INSTANCE;
             });
         });
-
+        btShowBanner.setOnClickListener(v -> {
+            adEasy.showBanner();
+        });
         btNextActivity.setOnClickListener(v->{
             startActivity(new Intent(this, JavaTestActivity.class));
         });
@@ -87,16 +94,54 @@ public class JavaMainActivity extends JavaAppActivity {
 
     }
 
+    private void refreshBtVideo(){
+        if(adEasy.hasVideo()){
+            btShowVideo.setAlpha(1f);
+        }else{
+            btShowVideo.setAlpha(0.5f);
+        }
+    }
+
+    private void refreshBtIns(){
+        if(adEasy.hasInterstitial()){
+            btShowInterstitial.setAlpha(1f);
+        }else{
+            btShowInterstitial.setAlpha(0.5f);
+        }
+    }
+
+    private void refreshBtInsVideo(){
+        if(adEasy.hasInterstitialVideo()){
+            btShowInterstitialVideo.setAlpha(1f);
+        }else{
+            btShowInterstitialVideo.setAlpha(0.5f);
+        }
+    }
+
+    private void refreshBtBanner(){
+        if(adEasy.hasBanner()){
+            btShowBanner.setAlpha(1f);
+        }else{
+            btShowBanner.setAlpha(0.5f);
+        }
+    }
+
+    //广告加载成功回调
+    @Override
+    public void onAdLoad(@NotNull ADInfo adInfo, boolean isSelf) {
+        super.onAdLoad(adInfo, isSelf);
+        switch (adInfo.getType()){
+            case ADInfo.TYPE_VIDEO:refreshBtVideo();break;
+            case ADInfo.TYPE_INTERSTITIAL:refreshBtIns();break;
+            case ADInfo.TYPE_INTERSTITIAL_VIDEO:refreshBtInsVideo();break;
+            case ADInfo.TYPE_BANNER:refreshBtBanner();break;
+        }
+    }
+
+    //广告关闭回调
     @Override
     public void onAdClose(@NotNull ADInfo adInfo, boolean isReward) {
         super.onAdClose(adInfo, isReward);
 
     }
-
-    @Override
-    public void onAdLoad(@NotNull ADInfo adInfo, boolean isSelf) {
-        super.onAdLoad(adInfo, isSelf);
-    }
-
-
 }

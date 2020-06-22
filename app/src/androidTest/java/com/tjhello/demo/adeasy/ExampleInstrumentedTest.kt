@@ -1,4 +1,4 @@
-package com.tjbaobao.utils.demo.adeasy
+package com.tjhello.demo.adeasy
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

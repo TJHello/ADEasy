@@ -1,4 +1,4 @@
-package com.tjbaobao.utils.demo.adeasy.java;
+package com.tjhello.demo.adeasy.java;
 
 import android.app.Application;
 import android.content.Context;

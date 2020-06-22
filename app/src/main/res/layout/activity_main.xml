@@ -18,24 +18,33 @@
             android:id="@+id/btShowVideo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="显示视频"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btShowInterstitialVideo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="显示插屏视频"/>
+            android:text="@string/show_video"/>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btShowInterstitial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="显示插屏" />
+            android:text="@string/show_ins" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btShowInterstitialVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_ins_video"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btShowBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_banner" />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btNextActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="下一个页面"
-
+            android:text="@string/main_bt_next_page"
             />
     </androidx.appcompat.widget.LinearLayoutCompat>
-
+    <FrameLayout
+        android:id="@+id/frameBanner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

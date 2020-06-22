@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tjbaobao.utils.demo.adeasy">
+    package="com.tjhello.demo.adeasy">
 
     <application
-        android:name=".TJApplication"
+        android:name="com.tjhello.demo.adeasy.TJApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +16,7 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".MainActivity"
+        <activity android:name="com.tjhello.demo.adeasy.MainActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             >
             <intent-filter>
@@ -25,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestActivity"
+        <activity android:name="com.tjhello.demo.adeasy.TestActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             />
     </application>

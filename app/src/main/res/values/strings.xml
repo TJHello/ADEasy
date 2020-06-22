@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">ADEasy</string>
+    <string name="app_name" translatable="false">ADEasy</string>
+
+    <string name="show_video">show video</string>
+    <string name="show_ins_video">show interstitial video</string>
+    <string name="show_ins">show interstitial</string>
+    <string name="main_bt_next_page">Next Page</string>
+    <string name="show_banner">show Banner</string>
+    <string name="hide_banner">hide banner</string>
+
 </resources>
