@@ -61,7 +61,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:3.1.1303-t10"
+        classpath "com.TJHello.plugins:ADEasy:4.1.1303-t11"
       }
 }
 
@@ -342,7 +342,18 @@ t:内部测试
 
 
 ### SDK版本对应
-
+x.2.xxxx
+```
+Yomob:1.8.7
+MI:5.0.0
+Unity:3.4.6
+ByteDance:3.1.0.0
+Admob:19.2.0
+GDTSDK:4.232.1102
+Vungle:6.7.0
+Facebook:5.9.1
+Baidu:5.86
+```
 x.1.xxxx
 ```
 Yomob:1.8.7
@@ -366,9 +377,32 @@ Vungle:6.5.2
 Facebook:5.6.0
 ```
 
+### 自动化插件更新日志
+
+v3
+```
+1、增加对友盟、ABTest，inChina，exclude以及appkey、appToken的支持
+```
+v4
+```
+1、修复某些情况下，热修改manifests时，删除条目不生效的问题。
+2、修复某些情况下，热修改平台开关，在添加manifests的地方没有动态改变的问题。
+3、新增支持百度广告自动化接入。
+```
 
 
 ### 主程序更新日志
+1304-t01 更新时间2020-06-29
+```
+1、全平台SDK升级，新增支持Baidu广告。
+2、修复使用在线配置时，可能会报错找不到类的问题。
+3、其他bug修复以及优化。
+```
+
+1303-t11 更新时间2020-06-25
+```
+1、小bug修复，以及一些细微调整
+```
 
 1303-t10 更新时间2020-05-20(情人节)
 ```

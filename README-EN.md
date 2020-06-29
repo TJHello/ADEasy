@@ -54,7 +54,7 @@ buildscript {
      }
       dependencies {
         ...
-        classpath "com.TJHello.plugins:ADEasy:3.1.1303-t10"
+        classpath "com.TJHello.plugins:ADEasy:4.1.1303-t11"
       }
 }
 
@@ -295,6 +295,18 @@ boolean hideInterstitial(Not Support)
 If you need to refresh the weights, you can call the ADEasy.changeWeight method.
 
 ### AD SDK Version
+x.2.xxxx
+```
+Yomob:1.8.7
+MI:5.0.0
+Unity:3.4.6
+ByteDance:3.1.0.0
+Admob:19.2.0
+GDTSDK:4.232.1102
+Vungle:6.7.0
+Facebook:5.9.1
+Baidu:5.86
+```
 x.1.xxxx
 ```
 Yomob:1.8.7
