@@ -22,6 +22,7 @@ ADEasyExt{
     adFacebook = false
     adByteDance = false
     adVungle = false
+    adBaidu = false
 //    abTest = true //ABTest开关 https://github.com/TJHello/ABTest
 //    umeng = ['key'] //是否让ADEasy托管友盟,['key','deviceType(可选，默认1)','pushSecret(可选，默认null)']
 //    exclude = ['xxxx'] //例外掉某个包
