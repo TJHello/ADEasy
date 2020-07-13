@@ -2,7 +2,7 @@
 
 **English** [https://github.com/TJHello/ADEasy/blob/master/README-EN.md](https://github.com/TJHello/ADEasy/blob/master/README-EN.md)
 
-**手动集成文档(海外平台)** [https://github.com/TJHello/ADEasy/blob/master/README-MANUAL.md](https://github.com/TJHello/ADEasy/blob/master/README-MANUAL.md)
+**手动集成文档(海外平台)** [https://github.com/TJHello/ADEasy/blob/master/README-MANUAL-v2.md](https://github.com/TJHello/ADEasy/blob/master/README-MANUAL-v2.md)
 
 **其他工具说明** [https://github.com/TJHello/ADEasy/blob/master/README-TOOLS.md](https://github.com/TJHello/ADEasy/blob/master/README-TOOLS.md)
 
@@ -59,7 +59,7 @@ buildscript {
         maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
      }
       dependencies {
-        classpath "com.TJHello.plugins:ADEasy:4.1.1303-t11"
+        classpath "com.TJHello.plugins:ADEasy:4.2.1304-t03"
       }
 }
 
@@ -391,6 +391,8 @@ v4
 1、全平台SDK升级，新增支持Baidu广告。
 2、修复使用在线配置时，可能会报错找不到类的问题。
 3、精简与整理代码，优化广告按权加载的整体逻辑。
+4、修复Yomob广告回调的问题
+5、修复手机品牌判断不准确的问题
 ```
 
 4.1.1303-t11 更新时间2020-06-25
