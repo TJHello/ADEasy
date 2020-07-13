@@ -56,18 +56,15 @@ IronSource
 ```groovy
 buildscript {
      repositories {
-        ...
-         maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
+        maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
      }
       dependencies {
-        ...
         classpath "com.TJHello.plugins:ADEasy:4.1.1303-t11"
       }
 }
 
 allprojects {
      repositories {
-        ...
         maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
      }
 }
@@ -77,7 +74,6 @@ allprojects {
 
 
 ```groovy
-....
 apply plugin: 'ad-easy'
 
 ADEasyExt{
@@ -100,9 +96,7 @@ ADEasyExt{
 }
 
 android {
-    ...
     defaultConfig {
-        ...
         //当方法数超限了
         multiDexEnabled true
     }
@@ -121,7 +115,7 @@ dependencies {
 
 ```
 
-- ### Step3 配置Application（[TJApplication.kt](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TJApplication.kt)）（[TJApplication.java](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/java/JavaTJApplication.java)）
+- ### Step3 配置Application（[TJApplication.kt](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjhello/demo/adeasy/TJApplication.kt)）（[TJApplication.java](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjhello/demo/adeasy/java/JavaTJApplication.java)）
 
 ```kotlin
 class TJApplication : Application(),ADEasyApplicationImp{
@@ -168,7 +162,7 @@ class TJApplication : Application(),ADEasyApplicationImp{
 }
 ```
 
-- ### Step4 配置AppActivity（[AppActivity.kt](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/AppActivity.kt)）（[AppActivity.java](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/java/JavaAppActivity.java)）
+- ### Step4 配置AppActivity（[AppActivity.kt](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjhello/demo/adeasy/AppActivity.kt)）（[AppActivity.java](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjhello/demo/adeasy/java/JavaAppActivity.java)）
 
 
 ```kotlin
@@ -237,7 +231,7 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
 
 ```
 
-### 示例([TestActivity.kt](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))([TestActivity.java](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/java/JavaTestActivity.java))
+### 示例([TestActivity.kt](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjhello/demo/adeasy/TestActivity.kt))([TestActivity.java](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjhello/demo/adeasy/java/JavaTestActivity.java))
 
 ```kotlin
 
@@ -392,19 +386,19 @@ v4
 
 
 ### 主程序更新日志
-1304-t01 更新时间2020-06-29
+4.2.1304-t03 更新时间2020-06-29
 ```
 1、全平台SDK升级，新增支持Baidu广告。
 2、修复使用在线配置时，可能会报错找不到类的问题。
-3、其他bug修复以及优化。
+3、精简与整理代码，优化广告按权加载的整体逻辑。
 ```
 
-1303-t11 更新时间2020-06-25
+4.1.1303-t11 更新时间2020-06-25
 ```
 1、小bug修复，以及一些细微调整
 ```
 
-1303-t10 更新时间2020-05-20(情人节)
+3.1.1303-t10 更新时间2020-05-20(情人节)
 ```
 1、新增广告加载线程调度功能
 2、新增在线配置功能

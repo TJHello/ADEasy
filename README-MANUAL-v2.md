@@ -1,8 +1,43 @@
-# ADEasy手动集成文档(海外平台)-v1
+# ADEasy手动集成文档(海外平台)-v2
+
+### 更新日志
+
+update ADEasy 1.1303-t10->2.1304-t03
+```groovy
+    implementation 'com.TJHello:ADEasy:2.1304-t03'
+```
+remove ads-identifier
+
+- ~~implementation 'androidx.ads:ads-identifier:1.0.0-alpha04'~~
+
+- ~~implementation 'com.google.guava:guava:28.0-android'~~
+
+update Admob 19.0.1->19.2.0
+```groovy
+    implementation 'com.google.android.gms:play-services-ads:19.2.0'
+```
+
+update Facebook 5.8.0->5.9.1
+```groovy
+    implementation 'com.facebook.android:audience-network-sdk:5.9.1'
+```
+
+update Vungle 6.5.2->6.7.0
+```groovy
+    implementation 'com.vungle:publisher-sdk-android:6.7.0'
+    implementation 'com.google.android.gms:play-services-basement:17.3.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+    implementation "androidx.localbroadcastmanager:localbroadcastmanager:1.0.0"
+```
+
+update Unity 3.4.2->3.4.6
+```groovy
+    implementation 'com.unity3d.ads:unity-ads:3.4.6'
+```
 
 ### Step 1. 配置远程仓库地址build.gradle(project)
 
-```
+```groovy
 
 allprojects {
     repositories {
@@ -19,42 +54,38 @@ allprojects {
 ### Step 2. 配置build.gradle(app)
 
 
-```
+```groovy
 
 dependencies {
 
     //必须接入
-    implementation 'com.TJHello:ADEasy:1.1303-t10'
-    
-    //建议接入，谷歌官方广告跟踪组件，有利于提高收益
-    implementation 'androidx.ads:ads-identifier:1.0.0-alpha04'
-    implementation 'com.google.guava:guava:28.0-android'
+    implementation 'com.TJHello:ADEasy:2.1304-t03'
     
     //广告平台，按需接入
     
     //admob
-    implementation 'com.google.android.gms:play-services-ads:19.0.1'
+    implementation 'com.google.android.gms:play-services-ads:19.2.0'
     
     //facebook
-    implementation 'com.facebook.android:audience-network-sdk:5.8.0'
+    implementation 'com.facebook.android:audience-network-sdk:5.9.1'
     
     //Vungle
-    implementation 'com.vungle:publisher-sdk-android:6.5.2'
-    implementation 'com.google.android.gms:play-services-basement:17.1.1'
+    implementation 'com.vungle:publisher-sdk-android:6.7.0'
+    implementation 'com.google.android.gms:play-services-basement:17.3.0'
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
     implementation "androidx.localbroadcastmanager:localbroadcastmanager:1.0.0"
     
     //Unity
-    implementation 'com.unity3d.ads:unity-ads:3.4.2'
+    implementation 'com.unity3d.ads:unity-ads:3.4.6'
 
     //工具，按需接入
 
     //Umeng
-    implementation 'com.umeng.umsdk:analytics:8.0.0'
-    implementation 'com.umeng.umsdk:common:2.0.0'
+    implementation 'com.umeng.umsdk:analytics:8.1.6'
+    implementation 'com.umeng.umsdk:common:2.2.5'
     
     //ABTest
-    implementation 'com.TJHello:ABTest:0.9.31'
+    implementation 'com.TJHello:ABTest:0.9.36'
     
     //GoogleBilling
     implementation 'com.TJHello:GoogleBilling:1.2.2.13'
@@ -67,7 +98,6 @@ dependencies {
 
 ```
 <!-- 需要自主配置最基础的网络访问权限，以及Android 9版本以上的网络配置 -->    
-
 <application>
     
     <!-- 如使用离线模式可删除 -->

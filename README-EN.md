@@ -49,18 +49,15 @@ IronSource
 ```groovy
 buildscript {
      repositories {
-        ...
          maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
      }
       dependencies {
-        ...
         classpath "com.TJHello.plugins:ADEasy:4.1.1303-t11"
       }
 }
 
 allprojects {
      repositories {
-        ...
         maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
      }
 }
@@ -70,7 +67,6 @@ allprojects {
 
 
 ```groovy
-....
 apply plugin: 'ad-easy'
 
 ADEasyExt{
@@ -92,9 +88,7 @@ ADEasyExt{
 }
 
 android {
-    ...
     defaultConfig {
-        ...
         //Unable to execute dex: method ID not in [0, 0xffff]: 65536
         multiDexEnabled true
     }
@@ -113,7 +107,7 @@ dependencies {
 
 ```
 
-- ### Step3 Create Application（[TJApplication](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TJApplication.kt)）
+- ### Step3 Create Application（[TJApplication](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjhello/demo/adeasy/TJApplication.kt)）
 
 ```kotlin
 class TJApplication : Application(),ADEasyApplicationImp{
@@ -160,7 +154,7 @@ class TJApplication : Application(),ADEasyApplicationImp{
 }
 ```
 
-- ### Step4 Create AppActivity（[AppActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/AppActivity.kt)）
+- ### Step4 Create AppActivity（[AppActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjhello/demo/adeasy/AppActivity.kt)）
 
 
 ```kotlin
@@ -228,7 +222,7 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
 
 ```
 
-### Example([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjbaobao/utils/demo/adeasy/TestActivity.kt))
+### Example([TestActivity](https://github.com/TJHello/ADEasy/blob/master/app/src/main/java/com/tjhello/demo/adeasy/TestActivity.kt))
 
 ```kotlin
 
@@ -287,7 +281,7 @@ boolean showInterstitial()
 boolean showInterstitialVideo()
 boolean showVideo() 
 boolean hideBanner() 
-boolean hideInterstitial(Not Support)
+boolean hideInterstitial()//Not Support
 ```
 
 ### Other

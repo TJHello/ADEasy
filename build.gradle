@@ -8,11 +8,11 @@ buildscript {
         maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:4.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath "com.TJHello.plugins:ADEasy:4.1.1303-t11"
+        classpath "com.TJHello.plugins:ADEasy:4.2.1304-t03"
     }
 }
 
