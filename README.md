@@ -42,9 +42,9 @@ ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频))
 
 Vungle(banner,interstitial,video,interstitialVideo)
 
-**下一步打算支持的广告平台:**
+Baidu(banner,interstitial,video,interstitialVideo)
 
-Baidu
+**下一步打算支持的广告平台:**
 
 IronSource
 
