@@ -10,6 +10,8 @@
 
 **QQ交流群(425219113)**
 
+使用该程序之前，请仔细阅读：[《免责声明与许可协议》](https://github.com/TJHello/ADEasy/blob/master/LICENSE)
+
 ---
 一套全平台的广告聚合SDK快速集成框架。
 
