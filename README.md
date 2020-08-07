@@ -60,7 +60,7 @@ buildscript {
         maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
      }
       dependencies {
-        classpath "com.TJHello.plugins:ADEasy:4.2.1304-t03"
+        classpath "com.TJHello.plugins:ADEasy:4.2.1306-t05"
       }
 }
 
@@ -301,7 +301,7 @@ void hangLifeDown() //放下挂起的生命周期，继续执行
 void notShowInterstitialOnce() //忽略一次插屏显示请求，用于第一次进入首页不要显示插屏的场景,需要在adEasy.onCreate前调用
 void isAutoShowBanner() //当前页面是否自动显示Banner,需要在adEasy.onCreate前调用
 void isAutoShowInterstitial()//当前页面是否自动显示插屏,需要在adEasy.onCreate前调用
-void closeAD() //关闭当前页面的广告功能，需要在adEasy.,需要在adEasy.onCreate前调用
+void closeAD() //关闭当前页面的广告功能，需要在adEasy.onCreate前调用
 
 ```
 
@@ -334,8 +334,6 @@ b:bate测试(经过了客户真实环境验证)
 t:内部测试
 
 ```
-
-
 
 ### SDK版本对应
 x.2.xxxx
