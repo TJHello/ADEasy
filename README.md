@@ -15,15 +15,14 @@
 ---
 一套全平台的广告聚合SDK快速集成框架。
 
-ADEasy使用了插件自动集成技术，只需要简单控制各个平台的开关，就能实现各平台接入。并且对于未接入的广告，不会有冗余的代码。
+**简介：**
 
-当然，ADEasy本身也有足够的优点。
-
-- 统一接口。化繁为简，化难为易。系统再复杂，但接口很简实，助你快速上手。
-- 权重系统。可动态根据权重来分配广告位，有效提高收益。
-- 线程调度系统。全局可控调整广告加载队列，避免一窝蜂加载，不仅有效提高性能，还避免了多余的加载数。
-- 控制体系统。让你轻松实现对广告的极致控制。
-- 分级日志系统。从简至繁，可选需要打印的日志，帮助你快速定位问题。
+- 自动化集成技术，只需要简单控制平台开关就能实现广告接入。并且对于未接入的广告，不会有冗余的代码。
+- 更直观更简洁更高效的对外接口。
+- 可动态根据权重来分配广告位，有效提高收益。
+- 全局可控广告加载队列，有效提高性能，广告加载数可控。
+- 可精确到某个机型、国家、系统、渠道来控制广告。
+- 可选日志输出，精确定位问题，掌控流程。
 
 
 **目前支持的广告平台:**
@@ -36,15 +35,15 @@ Mi(banner,interstitial,video)
 
 Yomob(interstitial,video,interstitialVideo)
 
-GDT(腾讯优量汇)(banner2.0,插屏2.0,激励视频)
+GDT(腾讯优量汇2.0)(banner,interstitialVideo,video,splash)
 
 Facebook(banner,interstitial,video)
 
-ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频))
+ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频),splash)
 
 Vungle(banner,interstitial,video,interstitialVideo)
 
-Baidu(banner,interstitial,video,interstitialVideo)
+Baidu(banner,interstitial,video,interstitialVideo,splash)
 
 **下一步打算支持的广告平台:**
 
@@ -295,6 +294,7 @@ boolean showInterstitial() //显示插屏
 boolean showInterstitialVideo() //显示插屏视频
 boolean showVideo() //显示激励视频
 boolean hideBanner() //隐藏banner
+boolean showSplash()//显示开屏
 
 void hangLifeUp() //挂起生命周期,用于弹起隐私协议等场景,需要在adEasy.onCreate前调用
 void hangLifeDown() //放下挂起的生命周期，继续执行
@@ -388,6 +388,15 @@ v4
 
 
 ### 主程序更新日志
+
+4.2.1306-t05 更新时间2020-07-31
+```
+1、支持GDT、Bytedance、Baidu的开屏广告
+2、支持在代码中修改广告控制配置的参数
+3、支持在线功能的测试模式
+4、其他的优化
+```
+
 4.2.1304-t03 更新时间2020-06-29
 ```
 1、全平台SDK升级，新增支持Baidu广告。
