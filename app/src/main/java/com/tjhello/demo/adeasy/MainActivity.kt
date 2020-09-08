@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Toast
-import com.tjhello.adeasy.info.ADInfo
+import com.tjhello.adeasy.base.info.ADInfo
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppActivity() {

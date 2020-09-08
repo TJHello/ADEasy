@@ -15,7 +15,6 @@ ADEasyExt{
     //以下参数选择性填写，默认false
 //    adMobId = "ca-app-pub-7555156208216777~2135772583"//测试id
 //    adMob = true
-    adYomob = false
     adUnity = false
     adMi = false
     adGdt = false

@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tjhello.adeasy.ADEasy;
 import com.tjhello.adeasy.imp.ADEasyActivityImp;
-import com.tjhello.adeasy.info.ADInfo;
 
 import org.jetbrains.annotations.NotNull;
 

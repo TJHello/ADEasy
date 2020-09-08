@@ -6,12 +6,10 @@ import android.content.pm.PackageManager;
 
 import androidx.multidex.MultiDex;
 
-import com.tjhello.adeasy.ADEasy;
-import com.tjhello.adeasy.anno.ADChannel;
+import com.tjhello.adeasy.base.anno.ADChannel;
+import com.tjhello.adeasy.base.utils.ADEasyLog;
 import com.tjhello.adeasy.imp.ADEasyApplicationImp;
 import com.tjhello.adeasy.info.ADInfo;
-import com.tjhello.adeasy.info.config.base.ADAppConfig;
-import com.tjhello.adeasy.utils.ADEasyLog;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

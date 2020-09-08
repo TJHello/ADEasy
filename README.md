@@ -57,16 +57,16 @@ IronSource
 ```groovy
 buildscript {
      repositories {
-        maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
+        maven { url 'https://gitee.com/TJHello/publicLib/raw/master'}
      }
       dependencies {
-        classpath "com.TJHello.plugins:ADEasy:4.2.1306-t05"
+        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t17"
       }
 }
 
 allprojects {
      repositories {
-        maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
+        maven { url 'https://gitee.com/TJHello/publicLib/raw/master'}
      }
 }
 
@@ -91,6 +91,10 @@ ADEasyExt{
     adFacebook = true//Facebook开关
     adByteDance = false//ByteDance(穿山甲)开关
     adVungle = false//Vungle开关
+    adOppo = false//支持oppo联运情景
+    adVivo = false//支持vivo联运情景
+    adMintegral = false//Mintegral-中国
+    adMintegralGp = false//Mintegral-海外
     //umeng = ['key'] //是否让ADEasy托管友盟,['key','deviceType(可选，默认1)','pushSecret(可选，默认null)']
     //abTest = true //ABTest开关 https://github.com/TJHello/ABTest
     //exclude = ['xxxx'] //例外掉某个包

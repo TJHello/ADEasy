@@ -4,11 +4,12 @@ import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
 import com.tjhello.adeasy.ADEasy
-import com.tjhello.adeasy.anno.ADChannel
+import com.tjhello.adeasy.base.anno.ADChannel
+import com.tjhello.adeasy.base.info.ADInfo
+import com.tjhello.adeasy.base.info.config.base.AdConfig
+import com.tjhello.adeasy.base.info.config.base.PlatformConfig
+import com.tjhello.adeasy.base.utils.ADEasyLog
 import com.tjhello.adeasy.imp.ADEasyApplicationImp
-import com.tjhello.adeasy.info.ADInfo
-import com.tjhello.adeasy.info.config.base.ADAppConfig
-import com.tjhello.adeasy.utils.ADEasyLog
 
 /**
  * 作者:天镜baobao
@@ -35,7 +36,8 @@ class TJApplication : Application(), ADEasyApplicationImp {
         super.onCreate()
         ADEasy.setDebug(true)//这个关系到广告的测试模式，如使用自动集成插件，release模式下，会强行设置为false
         ADEasy.channel = ADChannel.Order
-        ADEasy.toOfflineMode()
+        ADEasy.toOfflineMode()//关闭在线模式
+//        ADEasy.toTestMode()//测试配置模式，此时访问的是测试在线配置(仅针对在线模式)
         ADEasyLog.addFilterType(
             ADEasyLog.TYPE_HANDLER_BASE,
             ADEasyLog.TYPE_ADEASY_DETAILED_STEPS,
@@ -49,44 +51,46 @@ class TJApplication : Application(), ADEasyApplicationImp {
         return false
     }
 
+    //ADEasy初始完成
+    override fun onInitAfter() {
+        //可以本地修改控制策略
+        val manager = ADEasy.getConfigManager()
+        manager.getInsCtrlManager()
+            .setAutoShow(true)
+            .setIntervalTime(60000)
+    }
+
     //创建广告配置
-    override fun createADAppConfig(group: String): ADAppConfig? {
+    override fun createADAppConfig(group: String): PlatformConfig? {
         when(group){
-            ADInfo.GROUP_YOMOB->{
-//                return ADAppConfig.createYomob("2o0pxxxxxxxxxx","10053")
-//                    .initWeight(10)
-//                    .addParameter("7UmIURYsIxxxxxxx",ADInfo.TYPE_VIDEO)
-//                    .addParameter("4jNKxefqixxxxxxx",ADInfo.TYPE_INTERSTITIAL_VIDEO)
-            }
             ADInfo.GROUP_MI->{
-//                return ADAppConfig.createMI("2882303xxxxxxxxx","5911xxxxxxxx"
-//                    ,"U3pS6Oxxxxxxx==")
-//                    .initWeight(0)
-//                    .addParameter("df680161af4eexxxxxxxxxxxxxxxxxx",ADInfo.TYPE_VIDEO)
-//                    .addParameter("1e1f1a4432c4fxxxxxxxxxxxxxxxxxx",ADInfo.TYPE_INTERSTITIAL)
+                return AdConfig.createMI("2882303xxxxxxxxx")
+                    .initWeight(0)
+                    .addParameter("df680161af4eexxxxxxxxxxxxxxxxxx",ADInfo.TYPE_VIDEO)
+                    .addParameter("1e1f1a4432c4fxxxxxxxxxxxxxxxxxx",ADInfo.TYPE_INTERSTITIAL)
             }
             ADInfo.GROUP_UNITY->{
-//                return ADAppConfig.createUnity("xxxxx")
-//                    .initWeight(0)
-//                    .addParameter("rewardedVideo",ADInfo.TYPE_VIDEO)
-//                    .addParameter("interstitial",ADInfo.TYPE_INTERSTITIAL_VIDEO)
+                return AdConfig.createUnity("xxxxx")
+                    .initWeight(0)
+                    .addParameter("rewardedVideo",ADInfo.TYPE_VIDEO)
+                    .addParameter("interstitial",ADInfo.TYPE_INTERSTITIAL_VIDEO)
             }
             ADInfo.GROUP_ADMOB->{
-//                return ADAppConfig.createAdmob()
-//                    .initWeight(10)
-//                    .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
-//                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
-//                    .addParameter("ca-app-pub-3940256099942544/8691691433",ADInfo.TYPE_INTERSTITIAL_VIDEO)//测试id
-//                    .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)//测试id
+                return AdConfig.createAdmob()
+                    .initWeight(10)
+                    .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
+                    .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
+                    .addParameter("ca-app-pub-3940256099942544/8691691433",ADInfo.TYPE_INTERSTITIAL_VIDEO)//测试id
+                    .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)//测试id
                     //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
-//                    .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
+                    .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
             }
             ADInfo.GROUP_FACEBOOK->{
-//                return ADAppConfig.createFacebook()
-//                    .initWeight(10)
-//                    .addParameter("28914969342xxxxxxx_xxxxxxx97797568448",ADInfo.TYPE_INTERSTITIAL)
-//                    .addParameter("28914969342xxxxxxx_xxxxxxx02807567947",ADInfo.TYPE_VIDEO)
-//                    .addParameter("28914969342xxxxxxx_xxxxxxx21207556107",ADInfo.TYPE_BANNER)
+                return AdConfig.createFacebook()
+                    .initWeight(10)
+                    .addParameter("28914969342xxxxxxx_xxxxxxx97797568448",ADInfo.TYPE_INTERSTITIAL)
+                    .addParameter("28914969342xxxxxxx_xxxxxxx02807567947",ADInfo.TYPE_VIDEO)
+                    .addParameter("28914969342xxxxxxx_xxxxxxx21207556107",ADInfo.TYPE_BANNER)
             }
         }
         return null
