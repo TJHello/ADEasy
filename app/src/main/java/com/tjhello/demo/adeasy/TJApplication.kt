@@ -6,7 +6,10 @@ import androidx.multidex.MultiDex
 import com.tjhello.adeasy.ADEasy
 import com.tjhello.adeasy.base.anno.ADChannel
 import com.tjhello.adeasy.base.info.ADInfo
+import com.tjhello.adeasy.base.info.config.MintegralConfig
+import com.tjhello.adeasy.base.info.config.VIVOConfig
 import com.tjhello.adeasy.base.info.config.base.AdConfig
+import com.tjhello.adeasy.base.info.config.base.AdParameter
 import com.tjhello.adeasy.base.info.config.base.PlatformConfig
 import com.tjhello.adeasy.base.utils.ADEasyLog
 import com.tjhello.adeasy.imp.ADEasyApplicationImp
@@ -51,13 +54,13 @@ class TJApplication : Application(), ADEasyApplicationImp {
         return false
     }
 
-    //ADEasy初始完成
+    //ADEasy初始化完成
     override fun onInitAfter() {
         //可以本地修改控制策略
         val manager = ADEasy.getConfigManager()
         manager.getInsCtrlManager()
             .setAutoShow(true)
-            .setIntervalTime(60000)
+            .setIntervalTime(10000)
     }
 
     //创建广告配置
@@ -69,12 +72,6 @@ class TJApplication : Application(), ADEasyApplicationImp {
                     .addParameter("df680161af4eexxxxxxxxxxxxxxxxxx",ADInfo.TYPE_VIDEO)
                     .addParameter("1e1f1a4432c4fxxxxxxxxxxxxxxxxxx",ADInfo.TYPE_INTERSTITIAL)
             }
-            ADInfo.GROUP_UNITY->{
-                return AdConfig.createUnity("xxxxx")
-                    .initWeight(0)
-                    .addParameter("rewardedVideo",ADInfo.TYPE_VIDEO)
-                    .addParameter("interstitial",ADInfo.TYPE_INTERSTITIAL_VIDEO)
-            }
             ADInfo.GROUP_ADMOB->{
                 return AdConfig.createAdmob()
                     .initWeight(10)
@@ -85,12 +82,15 @@ class TJApplication : Application(), ADEasyApplicationImp {
                     //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
                     .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
             }
-            ADInfo.GROUP_FACEBOOK->{
-                return AdConfig.createFacebook()
-                    .initWeight(10)
-                    .addParameter("28914969342xxxxxxx_xxxxxxx97797568448",ADInfo.TYPE_INTERSTITIAL)
-                    .addParameter("28914969342xxxxxxx_xxxxxxx02807567947",ADInfo.TYPE_VIDEO)
-                    .addParameter("28914969342xxxxxxx_xxxxxxx21207556107",ADInfo.TYPE_BANNER)
+            ADInfo.GROUP_MINTEGRAL->{
+                val videoParameter = AdParameter().apply {
+                    this.code = "ad_code"
+                    this.type = ADInfo.TYPE_VIDEO
+                    setParameter(MintegralConfig.PARAMETER_UNIT,"unit_id")
+                }
+                return AdConfig.createMintegral("appId","appKey")
+                    .initWeight(1)
+                    .addParameter(videoParameter)
             }
         }
         return null
