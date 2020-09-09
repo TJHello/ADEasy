@@ -60,7 +60,7 @@ buildscript {
         maven { url 'https://gitee.com/TJHello/publicLib/raw/master'}
      }
       dependencies {
-        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t17"
+        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t30"
       }
 }
 

@@ -6,10 +6,13 @@ import android.content.pm.PackageManager;
 
 import androidx.multidex.MultiDex;
 
+import com.tjhello.adeasy.ADEasy;
 import com.tjhello.adeasy.base.anno.ADChannel;
+import com.tjhello.adeasy.base.info.ADInfo;
+import com.tjhello.adeasy.base.info.config.base.AdConfig;
+import com.tjhello.adeasy.base.info.config.base.PlatformConfig;
 import com.tjhello.adeasy.base.utils.ADEasyLog;
 import com.tjhello.adeasy.imp.ADEasyApplicationImp;
-import com.tjhello.adeasy.info.ADInfo;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -58,10 +61,10 @@ public class JavaTJApplication extends Application implements ADEasyApplicationI
     //创建广告场景配置
     @Nullable
     @Override
-    public ADAppConfig createADAppConfig(@NotNull String group) {
+    public PlatformConfig createADAppConfig(@NotNull String group) {
         switch (group){
             case ADInfo.GROUP_ADMOB : {
-                return ADAppConfig.createAdmob()
+                return AdConfig.createAdmob()
                         .initWeight(10)
                         .addParameter("ca-app-pub-3940256099942544/6300978111", ADInfo.TYPE_BANNER,1,null)//测试id
                         .addParameter("ca-app-pub-3940256099942544/1033173712", ADInfo.TYPE_INTERSTITIAL,1,null)
@@ -72,7 +75,7 @@ public class JavaTJApplication extends Application implements ADEasyApplicationI
                     ;
             }
             case ADInfo.GROUP_GDT:{
-                return ADAppConfig.createGDT("xxxxx",1)
+                return AdConfig.createGDT("xxxxx",1)
                         .initWeight(100)
                         .addParameter("5080497486414382", ADInfo.TYPE_VIDEO,1,null)
                         .addParameter("9040097521398143", ADInfo.TYPE_INTERSTITIAL,1,null)
@@ -109,5 +112,10 @@ public class JavaTJApplication extends Application implements ADEasyApplicationI
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(base);
+    }
+
+    @Override
+    public void onInitAfter() {
+
     }
 }

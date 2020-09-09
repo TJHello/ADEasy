@@ -6,7 +6,7 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
-import com.tjhello.adeasy.info.ADInfo;
+import com.tjhello.adeasy.base.info.ADInfo;
 import com.tjhello.demo.adeasy.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -142,6 +142,11 @@ public class JavaMainActivity extends JavaAppActivity {
     @Override
     public void onAdClose(@NotNull ADInfo adInfo, boolean isReward) {
         super.onAdClose(adInfo, isReward);
+
+    }
+
+    @Override
+    public void onAdClick(@NotNull ADInfo adInfo) {
 
     }
 }

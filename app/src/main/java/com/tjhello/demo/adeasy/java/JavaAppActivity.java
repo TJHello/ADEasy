@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.tjhello.adeasy.ADEasy;
+import com.tjhello.adeasy.base.info.ADInfo;
 import com.tjhello.adeasy.imp.ADEasyActivityImp;
 
 import org.jetbrains.annotations.NotNull;

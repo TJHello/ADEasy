@@ -5,7 +5,7 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
-import com.tjhello.adeasy.info.ADInfo;
+import com.tjhello.adeasy.base.info.ADInfo;
 import com.tjhello.demo.adeasy.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -138,4 +138,8 @@ public class JavaTestActivity extends JavaAppActivity {
         }
     }
 
+    @Override
+    public void onAdClick(@NotNull ADInfo adInfo) {
+
+    }
 }
