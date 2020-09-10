@@ -45,9 +45,17 @@ Vungle(banner,interstitial,video,interstitialVideo)
 
 Baidu(banner,interstitial,video,interstitialVideo,splash)
 
+Oppo(banner,interstitial,video,interstitialVideo,splash)
+
+Vivo(banner,interstitial,video,splash)
+
+Mintegral(banner,interstitial,video,interstitialVideo,splash)
+
+Mintegral-GP(banner,interstitial,video,interstitialVideo,splash)
+
 **下一步打算支持的广告平台:**
 
-IronSource
+
 
 ### 使用环境
 
@@ -356,6 +364,23 @@ t:内部测试
 ```
 
 ### SDK版本对应
+x.3.xxxx
+```
+~~Yomob(已删除)~~
+MI:5.0.3
+Unity:3.4.8(修复Android11崩溃的问题)
+ByteDance:3.1.0.0
+Admob:19.3.0
+GDTSDK:4.251.1121(修复Android11崩溃问题)
+Vungle:6.7.0
+Facebook:5.9.1
+Baidu:5.86
+Vivo:4.2.0.0
+Oppo:3.5.1
+Mintegral:14.4.41
+```
+
+
 x.2.xxxx
 ```
 Yomob:1.8.7
@@ -392,10 +417,11 @@ Facebook:5.6.0
 ```
 
 ### 自动化插件更新日志
-
-v3
+v5
 ```
-1、增加对友盟、ABTest，inChina，exclude以及appkey、appToken的支持
+1、重构整个模块，改为纯Kotlin实现。
+2、即将支持多渠道（开发中）
+3、新增oppo、vivo、mintegral平台。
 ```
 v4
 ```
@@ -403,9 +429,20 @@ v4
 2、修复某些情况下，热修改平台开关，在添加manifests的地方没有动态改变的问题。
 3、新增支持百度广告自动化接入。
 ```
-
+v3
+```
+1、增加对友盟、ABTest，inChina，exclude以及appkey、appToken的支持
+```
 
 ### 主程序更新日志
+
+5.3.2001-t30
+```
+1、重构代码，将广告平台的逻辑完全分离开来到单独模块。解决了ov联运包检测不通过的问题。
+2、新增oppo、vivo、mintegral平台。
+3、开放本地控制广告，修改控制体的api。eg:ADEasy.getConfigManager()
+4、修复和优化大量问题，系统整体更加稳定了。
+```
 
 4.2.1306-t05 更新时间2020-07-31
 ```

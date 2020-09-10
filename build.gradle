@@ -6,7 +6,6 @@ buildscript {
         google()
         jcenter()
         maven { url 'https://gitee.com/TJHello/publicLib/raw/master'}
-        maven { url 'http://127.0.0.1/'}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
@@ -22,7 +21,6 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://gitee.com/TJHello/publicLib/raw/master'}
-        maven { url 'http://127.0.0.1/'}
     }
 }
 
