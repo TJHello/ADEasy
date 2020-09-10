@@ -49,6 +49,22 @@ Baidu(banner,interstitial,video,interstitialVideo,splash)
 
 IronSource
 
+### 使用环境
+
+
+```
+
+- Android Studio 3.6以上（建议环境，其余需要进一步测试）
+
+- AndroidX(必须)
+
+- Java/Kotlin
+
+- JAVA 1.8
+
+```
+
+
 ### 使用步骤
 
 - ### Step1 接入自动集成插件到build.gradle(project)
@@ -144,10 +160,10 @@ class TJApplication : Application(),ADEasyApplicationImp{
     }
 
         //创建广告配置
-    override fun createADAppConfig(group: String): ADAppConfig? {
+    override fun createADAppConfig(group: String): PlatformConfig? {
         when(group){
             ADInfo.GROUP_ADMOB->{
-                return ADAppConfig.createAdmob()
+                return AdConfig.createAdmob()
                      .initWeight(10)
                      .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
                      .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
