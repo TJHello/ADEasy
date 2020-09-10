@@ -151,10 +151,10 @@ class TJApplication : Application(),ADEasyApplicationImp{
 
     override fun onCreate() {
         super.onCreate()
-        ADEasy.setDebug(true)
+        ADEasy.setDebug(true)//关联广告平台debug模式，release版会自动设置为false
         ADEasy.channel = ADChannel.Order//关联友盟渠道与某些广告平台的渠道
         ADEasy.toOfflineMode()//离线模式
-        ADEasyLog.addFilterType(
+        ADEasyLog.addFilterType(//添加日志(默认显示基础日志)
             ADEasyLog.TYPE_HANDLER_BASE,
             ADEasyLog.TYPE_ADEASY_DETAILED_STEPS,
             ADEasyLog.TYPE_TOOLS_UMENG
@@ -167,7 +167,7 @@ class TJApplication : Application(),ADEasyApplicationImp{
         return false
     }
 
-        //创建广告配置
+    //创建广告配置(必须，离线模式或者获取在线配置失败时用到)
     override fun createADAppConfig(group: String): PlatformConfig? {
         when(group){
             ADInfo.GROUP_ADMOB->{
