@@ -55,7 +55,7 @@ Mintegral-GP(banner,interstitial,video,interstitialVideo,splash)
 
 **下一步打算支持的广告平台:**
 
-
+IronSource
 
 ### 使用环境
 
