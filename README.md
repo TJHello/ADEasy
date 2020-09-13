@@ -55,6 +55,22 @@ Mintegral-GP(banner,interstitial,video,interstitialVideo,splash)
 
 **下一步打算支持的广告平台:**
 
+IronSource
+
+### 使用环境
+
+
+```
+
+- Android Studio 3.6以上（建议环境，其余需要进一步测试）
+
+- AndroidX(必须)
+
+- Java/Kotlin
+
+- JAVA 1.8
+
+```
 
 
 ### 使用步骤
@@ -134,10 +150,10 @@ class TJApplication : Application(),ADEasyApplicationImp{
 
     override fun onCreate() {
         super.onCreate()
-        ADEasy.setDebug(true)
+        ADEasy.setDebug(true)//关联广告平台debug模式，release版会自动设置为false
         ADEasy.channel = ADChannel.Order//关联友盟渠道与某些广告平台的渠道
         ADEasy.toOfflineMode()//离线模式
-        ADEasyLog.addFilterType(
+        ADEasyLog.addFilterType(//添加日志(默认显示基础日志)
             ADEasyLog.TYPE_HANDLER_BASE,
             ADEasyLog.TYPE_ADEASY_DETAILED_STEPS,
             ADEasyLog.TYPE_TOOLS_UMENG
@@ -150,8 +166,13 @@ class TJApplication : Application(),ADEasyApplicationImp{
         return false
     }
 
+<<<<<<< HEAD
         //创建广告配置
     override fun createAdPlatformConfig(group: String): PlatformConfig? {
+=======
+    //创建广告配置(必须，离线模式或者获取在线配置失败时用到)
+    override fun createADAppConfig(group: String): PlatformConfig? {
+>>>>>>> 0cf51f7d82970f489ac36082ce7cf92ff382d61b
         when(group){
             ADInfo.GROUP_ADMOB->{
                 return AdConfig.createAdmob()

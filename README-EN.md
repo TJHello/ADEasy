@@ -35,9 +35,18 @@ ByteDance(banner,interstitial,video,interstitialVideo)
 
 Vungle(banner,interstitial,video,interstitialVideo)
 
-**Ad platforms that we plan to support next:**
+Baidu(banner,interstitial,video,interstitialVideo,splash)
 
-Baidu
+Oppo(banner,interstitial,video,interstitialVideo,splash)
+
+Vivo(banner,interstitial,video,splash)
+
+Mintegral(banner,interstitial,video,interstitialVideo,splash)
+
+Mintegral-GP(banner,interstitial,video,interstitialVideo,splash)
+
+
+**Ad platforms that we plan to support next:**
 
 IronSource
 
@@ -52,7 +61,7 @@ buildscript {
          maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
      }
       dependencies {
-        classpath "com.TJHello.plugins:ADEasy:4.1.1303-t11"
+        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t30"
       }
 }
 
@@ -82,6 +91,11 @@ ADEasyExt{
     adGdt = true //GDT
     adFacebook = true//Facebook
     adByteDance = false//ByteDance
+    adOppo = false//Oppo
+    adVivo = false//Vivo
+    adMintegral = false//Mintegral-Chain
+    adMintegralGp = false//Mintegral-GooglePlay
+    //umeng = ['key'] //eg:['key','deviceType','pushSecret']
     //abTest = true //ABTest switch https://github.com/TJHello/ABTest
     //exclude = ['xxxx'] //exclude package
 
@@ -114,15 +128,14 @@ class TJApplication : Application(),ADEasyApplicationImp{
 
     override fun onCreate() {
         super.onCreate()
-        ADEasy.setDebug(true)
-        ADEasy.init(this,this)
-        ADEasy.channel = ADChannel.Order
-        ADEasy.toOfflineMode()//Offline Mode
-        ADEasyLog.addFilterType(
-            ADEasyLog.TYPE_HANDLER_BASE,
-            ADEasyLog.TYPE_ADEASY_DETAILED_STEPS,
-            ADEasyLog.TYPE_TOOLS_UMENG
-        )
+        ADEasy.setDebug(true)//ad debug and log output
+        ADEasy.channel = ADChannel.Order//about umeng channel
+        ADEasy.toOfflineMode()
+        ADEasyLog.addFilterType(//ad log filter
+                ADEasyLog.TYPE_HANDLER_BASE,
+                ADEasyLog.TYPE_ADEASY_DETAILED_STEPS,
+                ADEasyLog.TYPE_TOOLS_UMENG
+                )
         ADEasy.init(this,this)
     }
 
@@ -132,10 +145,10 @@ class TJApplication : Application(),ADEasyApplicationImp{
     }
 
     //Create ad configuration
-    override fun createADAppConfig(group: String): ADAppConfig? {
+    override fun createADAppConfig(group: String): PlatformConfig? {
         when(group){
             ADInfo.GROUP_ADMOB->{
-                return ADAppConfig.createAdmob()
+                return AdConfig.createAdmob()
                      .initWeight(10)
                      .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//Test ID
                      .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
