@@ -166,13 +166,9 @@ class TJApplication : Application(),ADEasyApplicationImp{
         return false
     }
 
-<<<<<<< HEAD
-        //创建广告配置
-    override fun createAdPlatformConfig(group: String): PlatformConfig? {
-=======
+
     //创建广告配置(必须，离线模式或者获取在线配置失败时用到)
-    override fun createADAppConfig(group: String): PlatformConfig? {
->>>>>>> 0cf51f7d82970f489ac36082ce7cf92ff382d61b
+    override fun createAdPlatformConfig(group: String): PlatformConfig? {
         when(group){
             ADInfo.GROUP_ADMOB->{
                 return AdConfig.createAdmob()
