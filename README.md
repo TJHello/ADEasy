@@ -65,16 +65,16 @@ Mintegral-GP(banner,interstitial,video,interstitialVideo,splash)
 ```groovy
 buildscript {
      repositories {
-        maven { url 'https://gitee.com/TJHello/publicLib/raw/master'}
+        maven { url 'http://maven.tjhello.com/publicLib'}
      }
       dependencies {
-        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t30"
+        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t33"
       }
 }
 
 allprojects {
      repositories {
-        maven { url 'https://gitee.com/TJHello/publicLib/raw/master'}
+        maven { url 'http://maven.tjhello.com/publicLib'}
      }
 }
 
@@ -92,7 +92,6 @@ ADEasyExt{
     //以下参数选择性填写，默认false
     //adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填，并且更改成正确的id，否则admob会闪退。
     //adMob = true //admob开关
-    adYomob = true //yomob开关
     adUnity = true //unity开关
     adMi = true //mi广告开关
     adGdt = true //腾讯优量汇(广点通)开关
@@ -152,10 +151,10 @@ class TJApplication : Application(),ADEasyApplicationImp{
     }
 
         //创建广告配置
-    override fun createADAppConfig(group: String): ADAppConfig? {
+    override fun createAdPlatformConfig(group: String): PlatformConfig? {
         when(group){
             ADInfo.GROUP_ADMOB->{
-                return ADAppConfig.createAdmob()
+                return AdConfig.createAdmob()
                      .initWeight(10)
                      .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
                      .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
@@ -191,11 +190,6 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
         onLoadData()
     }
 
-    override fun onStart() {
-        super.onStart()
-        adEasy.onStart()
-    }
-
     override fun onPause() {
         super.onPause()
         adEasy.onPause()
@@ -204,11 +198,6 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
     override fun onResume() {
         super.onResume()
         adEasy.onResume()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        adEasy.onStop()
     }
 
     override fun onDestroy() {
@@ -353,7 +342,7 @@ x.3.xxxx
 ~~Yomob(已删除)~~
 MI:5.0.3
 Unity:3.4.8(修复Android11崩溃的问题)
-ByteDance:3.1.0.0
+ByteDance:3.2.5.1
 Admob:19.3.0
 GDTSDK:4.251.1121(修复Android11崩溃问题)
 Vungle:6.7.0

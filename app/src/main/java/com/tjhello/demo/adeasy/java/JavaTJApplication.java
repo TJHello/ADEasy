@@ -58,32 +58,7 @@ public class JavaTJApplication extends Application implements ADEasyApplicationI
         return false;
     }
 
-    //创建广告场景配置
-    @Nullable
-    @Override
-    public PlatformConfig createADAppConfig(@NotNull String group) {
-        switch (group){
-            case ADInfo.GROUP_ADMOB : {
-                return AdConfig.createAdmob()
-                        .initWeight(10)
-                        .addParameter("ca-app-pub-3940256099942544/6300978111", ADInfo.TYPE_BANNER,1,null)//测试id
-                        .addParameter("ca-app-pub-3940256099942544/1033173712", ADInfo.TYPE_INTERSTITIAL,1,null)
-                        .addParameter("ca-app-pub-3940256099942544/8691691433", ADInfo.TYPE_INTERSTITIAL_VIDEO,1,null)
-                        .addParameter("ca-app-pub-3940256099942544/5224354917", ADInfo.TYPE_VIDEO,10,null)
-                        //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
-                        //.addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
-                    ;
-            }
-            case ADInfo.GROUP_GDT:{
-                return AdConfig.createGDT("xxxxx",1)
-                        .initWeight(100)
-                        .addParameter("5080497486414382", ADInfo.TYPE_VIDEO,1,null)
-                        .addParameter("9040097521398143", ADInfo.TYPE_INTERSTITIAL,1,null)
-                        .addParameter("2090198667848921", ADInfo.TYPE_BANNER,1,null);
-            }
-        }
-        return null;
-    }
+
 
     //是否显示插屏，banner等广告(用于一键关闭所有广告)
     @Override
@@ -117,5 +92,32 @@ public class JavaTJApplication extends Application implements ADEasyApplicationI
     @Override
     public void onInitAfter() {
 
+    }
+
+    //创建广告场景配置
+    @Nullable
+    @Override
+    public PlatformConfig createAdPlatformConfig(@NotNull String s) {
+        switch (s){
+            case ADInfo.GROUP_ADMOB : {
+                return AdConfig.createAdmob()
+                        .initWeight(10)
+                        .addParameter("ca-app-pub-3940256099942544/6300978111", ADInfo.TYPE_BANNER,1,null)//测试id
+                        .addParameter("ca-app-pub-3940256099942544/1033173712", ADInfo.TYPE_INTERSTITIAL,1,null)
+                        .addParameter("ca-app-pub-3940256099942544/8691691433", ADInfo.TYPE_INTERSTITIAL_VIDEO,1,null)
+                        .addParameter("ca-app-pub-3940256099942544/5224354917", ADInfo.TYPE_VIDEO,10,null)
+                        //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
+                        //.addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
+                        ;
+            }
+            case ADInfo.GROUP_GDT:{
+                return AdConfig.createGDT("xxxxx",1)
+                        .initWeight(100)
+                        .addParameter("5080497486414382", ADInfo.TYPE_VIDEO,1,null)
+                        .addParameter("9040097521398143", ADInfo.TYPE_INTERSTITIAL,1,null)
+                        .addParameter("2090198667848921", ADInfo.TYPE_BANNER,1,null);
+            }
+        }
+        return null;
     }
 }

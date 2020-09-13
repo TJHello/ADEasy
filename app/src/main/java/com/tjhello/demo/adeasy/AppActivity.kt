@@ -40,7 +40,6 @@ abstract class AppActivity : AppCompatActivity(), ADEasyActivityImp {
 
     override fun onStart() {
         super.onStart()
-        adEasy.onStart()
     }
 
     override fun onPause() {
@@ -55,7 +54,6 @@ abstract class AppActivity : AppCompatActivity(), ADEasyActivityImp {
 
     override fun onStop() {
         super.onStop()
-        adEasy.onStop()
     }
 
     override fun onDestroy() {

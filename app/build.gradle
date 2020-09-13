@@ -19,7 +19,7 @@ ADEasyExt{
     adMi = false
     adGdt = false
     adFacebook = false
-    adByteDance = false
+    adByteDance = true
     adVungle = false
     adBaidu = false
 //    abTest = true //ABTest开关 https://github.com/TJHello/ABTest
@@ -61,8 +61,8 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

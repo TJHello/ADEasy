@@ -51,7 +51,6 @@ public abstract class JavaAppActivity extends AppCompatActivity implements ADEas
     @Override
     protected void onStart() {
         super.onStart();
-        adEasy.onStart();
     }
 
     @Override
@@ -69,7 +68,6 @@ public abstract class JavaAppActivity extends AppCompatActivity implements ADEas
     @Override
     protected void onStop() {
         super.onStop();
-        adEasy.onStop();
     }
 
     @Override

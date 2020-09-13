@@ -49,22 +49,7 @@ class TJApplication : Application(), ADEasyApplicationImp {
         ADEasy.init(this,this)
     }
 
-    //是否去广告
-    override fun isRemoveAd(): Boolean {
-        return false
-    }
-
-    //ADEasy初始化完成
-    override fun onInitAfter() {
-        //可以本地修改控制策略
-        val manager = ADEasy.getConfigManager()
-        manager.getInsCtrlManager()
-            .setAutoShow(true)
-            .setIntervalTime(10000)
-    }
-
-    //创建广告配置
-    override fun createADAppConfig(group: String): PlatformConfig? {
+    override fun createAdPlatformConfig(group: String): PlatformConfig? {
         when(group){
             ADInfo.GROUP_MI->{
                 return AdConfig.createMI("2882303xxxxxxxxx")
@@ -95,6 +80,21 @@ class TJApplication : Application(), ADEasyApplicationImp {
         }
         return null
     }
+
+    //是否去广告
+    override fun isRemoveAd(): Boolean {
+        return false
+    }
+
+    //ADEasy初始化完成
+    override fun onInitAfter() {
+        //可以本地修改控制策略
+        val manager = ADEasy.getConfigManager()
+        manager.getInsCtrlManager()
+            .setAutoShow(true)
+            .setIntervalTime(10000)
+    }
+
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
