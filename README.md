@@ -33,8 +33,6 @@ Unity(banner,interstitial,video,interstitialVideo)
 
 Mi(banner,interstitial,video)
 
-Yomob(interstitial,video,interstitialVideo)
-
 GDT(腾讯优量汇2.0)(banner,interstitialVideo,video,splash)
 
 Facebook(banner,interstitial,video)
