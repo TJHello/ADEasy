@@ -82,7 +82,7 @@ buildscript {
         maven { url 'http://maven.tjhello.com/publicLib'}
      }
       dependencies {
-        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t36"
+        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t40"
       }
 }
 
@@ -170,12 +170,12 @@ class TJApplication : Application(),ADEasyApplicationImp{
         when(group){
             ADInfo.GROUP_ADMOB->{
                 return AdConfig.createAdmob()
-                     .initWeight(10)
                      .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
                      .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
                      .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)
                      //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
                 //   .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
+                     .initWeight(10)
             }
         }
         return null
@@ -424,7 +424,7 @@ v3
 
 ### 主程序更新日志
 
-5.3.2001-t36
+5.3.2001-t40(更新中)
 ```
 1、重构代码，将广告平台的逻辑完全分离开来到单独模块。解决了ov联运包检测不通过的问题。
 2、新增oppo、vivo、mintegral平台。

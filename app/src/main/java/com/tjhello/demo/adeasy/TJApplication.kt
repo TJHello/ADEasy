@@ -53,29 +53,24 @@ class TJApplication : Application(), ADEasyApplicationImp {
         when(group){
             ADInfo.GROUP_MI->{
                 return AdConfig.createMI("2882303xxxxxxxxx")
-                    .initWeight(0)
                     .addParameter("df680161af4eexxxxxxxxxxxxxxxxxx",ADInfo.TYPE_VIDEO)
                     .addParameter("1e1f1a4432c4fxxxxxxxxxxxxxxxxxx",ADInfo.TYPE_INTERSTITIAL)
+                    .initWeight(0)
             }
             ADInfo.GROUP_ADMOB->{
                 return AdConfig.createAdmob()
-                    .initWeight(10)
                     .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//测试id
                     .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)//测试id
                     .addParameter("ca-app-pub-3940256099942544/8691691433",ADInfo.TYPE_INTERSTITIAL_VIDEO)//测试id
-                    .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)//测试id
+                    .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO)//测试id
                     //允许添加多个同类型，不同code的Parameter(Banner暂不支持该特性)
-                    .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)
+                    .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO)
+                    .initWeight(10)
             }
             ADInfo.GROUP_MINTEGRAL->{
-                val videoParameter = AdParameter().apply {
-                    this.code = "ad_code"
-                    this.type = ADInfo.TYPE_VIDEO
-                    setParameter(MintegralConfig.PARAMETER_UNIT,"unit_id")
-                }
                 return AdConfig.createMintegral("appId","appKey")
+                    .addParameter("ad_code","unit_id",ADInfo.TYPE_VIDEO)
                     .initWeight(1)
-                    .addParameter(videoParameter)
             }
         }
         return null
