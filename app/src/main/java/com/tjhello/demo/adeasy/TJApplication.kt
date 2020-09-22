@@ -76,11 +76,6 @@ class TJApplication : Application(), ADEasyApplicationImp {
         return null
     }
 
-    //是否去广告
-    override fun isRemoveAd(): Boolean {
-        return false
-    }
-
     //ADEasy初始化完成
     override fun onInitAfter() {
         //可以本地修改控制策略

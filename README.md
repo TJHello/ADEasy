@@ -79,19 +79,12 @@ IronSource
 ```groovy
 buildscript {
      repositories {
-        maven { url 'http://maven.tjhello.com/publicLib'}
+        maven { url 'https://tjhello.gitee.io/publiclib/'}
      }
-      dependencies {
-        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t40"
-      }
-}
-
-allprojects {
-     repositories {
-        maven { url 'http://maven.tjhello.com/publicLib'}
+     dependencies {
+        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t41"
      }
 }
-
 ```
 - ### Step2 启动插件，配置参数到[build.gradle(app)](https://github.com/TJHello/ADEasy/blob/master/app/build.gradle)
 
@@ -159,11 +152,6 @@ class TJApplication : Application(),ADEasyApplicationImp{
         ADEasy.init(this,this)
     }
 
-    //是否去广告
-    override fun isRemoveAd(): Boolean {
-        return false
-    }
-
 
     //创建广告配置(必须，离线模式或者获取在线配置失败时用到)
     override fun createAdPlatformConfig(group: String): PlatformConfig? {
@@ -180,6 +168,12 @@ class TJApplication : Application(),ADEasyApplicationImp{
         }
         return null
     }
+
+    //ADEasy初始化完成，有的方法需要在这里调用才有效果。
+    override fun onInitAfter() {
+        
+    }
+
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
@@ -310,7 +304,7 @@ boolean showInterstitial() //显示插屏
 boolean showInterstitialVideo() //显示插屏视频
 boolean showVideo() //显示激励视频
 boolean hideBanner() //隐藏banner
-boolean showSplash()//显示开屏
+void showSplash()//显示开屏
 
 void hangLifeUp() //挂起生命周期,用于弹起隐私协议等场景,需要在adEasy.onCreate前调用
 void hangLifeDown() //放下挂起的生命周期，继续执行
@@ -318,6 +312,20 @@ void notShowInterstitialOnce() //忽略一次插屏显示请求，用于第一�
 void isAutoShowBanner() //当前页面是否自动显示Banner,需要在adEasy.onCreate前调用
 void isAutoShowInterstitial()//当前页面是否自动显示插屏,需要在adEasy.onCreate前调用
 void closeAD() //关闭当前页面的广告功能，需要在adEasy.onCreate前调用
+
+ADEasy.init() //初始化接口
+ADEasy.setDebug() //关联广告的debug模式，同时打开日志,release模式下自动设置为false
+ADEasy.openLog() //打开日志
+ADEasy.toTestMode() //打开测试在线配置模式-仅针对在线模式
+ADEasy.setInterstitialTime() //设置插屏自动显示的间隔（毫秒），需要在初始化完成之后调用。
+ADEasy.getInstance() //获取一个新的ADEasy实例
+ADEasy.changeWeight() //改变某个平台的权重
+ADEasy.isInit() //是否初始化完成
+ADEasy.getOLParameter() //获取在线参数,需要开启在线功能，并且配置了在线参数
+ADEasy.toOfflineMode() //进入离线模式
+ADEasy.exitApp() //退出应用的时候调用，关联友盟exit等
+ADEasy.setInitListener() //设置一个各广告平台初始化监听器
+ADEasy.getConfigManager() //获取广告配置管理器，可以修改广告控制体数值。需要在初始化完成之后调用。
 
 ```
 
@@ -424,7 +432,7 @@ v3
 
 ### 主程序更新日志
 
-5.3.2001-t40(更新中)
+5.3.2001-t41(持续更新中)
 ```
 1、重构代码，将广告平台的逻辑完全分离开来到单独模块。解决了ov联运包检测不通过的问题。
 2、新增oppo、vivo、mintegral平台。

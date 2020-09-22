@@ -61,7 +61,7 @@ buildscript {
          maven { url 'https://raw.githubusercontent.com/TJHello/publicLib/master'}
      }
       dependencies {
-        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t30"
+        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t41"
       }
 }
 
@@ -139,24 +139,23 @@ class TJApplication : Application(),ADEasyApplicationImp{
         ADEasy.init(this,this)
     }
 
-    //Whether to remove ads
-    override fun isRemoveAd(): Boolean {
-        return false
-    }
-
     //Create ad configuration
-    override fun createADAppConfig(group: String): PlatformConfig? {
+    override fun createAdPlatformConfig(group: String): PlatformConfig? {
         when(group){
             ADInfo.GROUP_ADMOB->{
                 return AdConfig.createAdmob()
-                     .initWeight(10)
                      .addParameter("ca-app-pub-3940256099942544/6300978111",ADInfo.TYPE_BANNER)//Test ID
                      .addParameter("ca-app-pub-3940256099942544/1033173712",ADInfo.TYPE_INTERSTITIAL)
                      .addParameter("ca-app-pub-3940256099942544/5224354917",ADInfo.TYPE_VIDEO,10)//video1
                      .addParameter("ca-app-pub-394025609994***/**354917",ADInfo.TYPE_VIDEO,10)//video2
+                     .initWeight(10)
             }
         }
         return null
+    }
+
+    override fun onInitAfter() {
+        
     }
 
     override fun attachBaseContext(base: Context) {
@@ -183,11 +182,6 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
         onLoadData()
     }
 
-    override fun onStart() {
-        super.onStart()
-        adEasy.onStart()
-    }
-
     override fun onPause() {
         super.onPause()
         adEasy.onPause()
@@ -196,11 +190,6 @@ abstract class AppActivity : AppCompatActivity(),ADEasyActivityImp{
     override fun onResume() {
         super.onResume()
         adEasy.onResume()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        adEasy.onStop()
     }
 
     override fun onDestroy() {
@@ -302,6 +291,24 @@ boolean hideInterstitial()//Not Support
 If you need to refresh the weights, you can call the ADEasy.changeWeight method.
 
 ### AD SDK Version
+
+x.3.xxxx
+```
+~~Yomob(Deleted)~~
+MI:5.0.3
+Unity:3.4.8(fix android11 crash)
+ByteDance:3.2.5.1
+Admob:19.3.0
+GDTSDK:4.251.1121(fix android11 crash)
+Vungle:6.7.0
+Facebook:5.9.1
+Baidu:5.86
+Vivo:4.2.0.0
+Oppo:3.5.1
+Mintegral:14.4.41
+```
+
+
 x.2.xxxx
 ```
 Yomob:1.8.7

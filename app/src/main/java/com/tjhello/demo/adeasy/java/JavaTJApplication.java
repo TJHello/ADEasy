@@ -52,36 +52,12 @@ public class JavaTJApplication extends Application implements ADEasyApplicationI
         ADEasy.init(this,this);
     }
 
-    //是否去广告(用于VIP去广告等场景)
-    @Override
-    public boolean isRemoveAd() {
-        return false;
-    }
-
-
-
-    //是否显示插屏，banner等广告(用于一键关闭所有广告)
-    @Override
-    public boolean canShowAd() {
-        return true;
-    }
-
     //返回完成的关卡数(用于后期参数调控，多少关内部显示插屏banner等广告)
     @Override
     public int getCompleteLevel() {
         return 0;
     }
 
-    //返回应用版本号(用于后期参数调控某些版本不显示插屏banner等广告)
-    @Override
-    public int getAppVersion() {
-        try {
-            return getPackageManager().getPackageInfo(this.getPackageName(),0).versionCode;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -89,6 +65,7 @@ public class JavaTJApplication extends Application implements ADEasyApplicationI
         MultiDex.install(base);
     }
 
+    //ADEasy初始化完成
     @Override
     public void onInitAfter() {
 

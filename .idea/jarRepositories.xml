@@ -56,5 +56,10 @@
       <option name="name" value="maven5" />
       <option name="url" value="http://maven.tjhello.com/publicLib/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven3" />
+      <option name="name" value="maven3" />
+      <option name="url" value="https://tjhello.gitee.io/publiclib/" />
+    </remote-repository>
   </component>
 </project>
