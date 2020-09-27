@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -14,26 +15,41 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         >
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btShowVideo"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/show_video"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btShowInterstitial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/show_ins" />
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShowVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/show_video"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShowInterstitial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/show_ins" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btShowInterstitialVideo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/show_ins_video"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btShowBanner"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/show_banner" />
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShowBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/show_banner" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btShowSplash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/show_splash"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btNextActivity"
             android:layout_width="wrap_content"
@@ -42,9 +58,17 @@
             />
     </androidx.appcompat.widget.LinearLayoutCompat>
     <FrameLayout
+        android:id="@+id/splashLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/frameBanner"
+        />
+    <FrameLayout
         android:id="@+id/frameBanner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

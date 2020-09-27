@@ -82,7 +82,7 @@ buildscript {
         maven { url 'https://tjhello.gitee.io/publiclib/'}
      }
      dependencies {
-        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t41"
+        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t44"
      }
 }
 ```
@@ -432,7 +432,7 @@ v3
 
 ### 主程序更新日志
 
-5.3.2001-t41(持续更新中)
+5.3.2001-t44(持续更新中)
 ```
 1、重构代码，将广告平台的逻辑完全分离开来到单独模块。解决了ov联运包检测不通过的问题。
 2、新增oppo、vivo、mintegral平台。

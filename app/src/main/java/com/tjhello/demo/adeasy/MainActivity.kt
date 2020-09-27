@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Toast
 import com.tjhello.adeasy.base.info.ADInfo
+import com.tjhello.adeasy.listener.ADEasySplashListener
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppActivity() {
@@ -43,9 +44,16 @@ class MainActivity : AppActivity() {
         btShowBanner.setOnClickListener {
             adEasy.showBanner()
         }
+
+        btShowSplash.setOnClickListener {
+            showSplash()
+        }
+
         btNextActivity.setOnClickListener {
             startActivity(Intent(this, TestActivity::class.java))
         }
+
+        showSplash()
     }
 
     override fun onLoadData() {
@@ -82,6 +90,14 @@ class MainActivity : AppActivity() {
         }else{
             btShowBanner.alpha = 0.5f
         }
+    }
+
+    private fun showSplash(){
+        adEasy.showSplash(splashLayout,object : ADEasySplashListener {
+            override fun onFinish(isSuccess:Boolean) {
+                splashLayout.removeAllViews()
+            }
+        })
     }
 
     override fun onAdLoad(adInfo: ADInfo, isSelf: Boolean) {

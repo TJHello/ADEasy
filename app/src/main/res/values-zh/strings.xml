@@ -6,4 +6,5 @@
     <string name="main_bt_next_page">下一个页面</string>
     <string name="show_banner">显示Banner</string>
     <string name="hide_banner">隐藏Banner</string>
+    <string name="show_splash">显示开屏</string>
 </resources>

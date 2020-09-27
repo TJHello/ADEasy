@@ -7,5 +7,5 @@
     <string name="main_bt_next_page">Next Page</string>
     <string name="show_banner">show Banner</string>
     <string name="hide_banner">hide banner</string>
-
+    <string name="show_splash">show Splash</string>
 </resources>
