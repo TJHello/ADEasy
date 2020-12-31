@@ -21,7 +21,7 @@
 - 更直观更简洁更高效的对外接口。
 - 可动态根据权重来分配广告位，有效提高收益。
 - 全局可控广告加载队列，有效提高性能，广告加载数可控。
-- 可精确到某个机型、国家、系统、渠道来控制广告。
+- 可精确到某个版本、机型、国家、系统、渠道来控制广告。
 - 可选日志输出，精确定位问题，掌控流程。
 
 
@@ -33,11 +33,11 @@ Unity(banner,interstitial,video,interstitialVideo)
 
 Mi(banner,interstitial,video)
 
-GDT(腾讯优量汇2.0)(banner,interstitialVideo,video,splash)
+GDT(腾讯优量汇2.0)(banner,interstitialVideo,video,splash,native)
 
 Facebook(banner,interstitial,video)
 
-ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频),splash)
+ByteDance(穿山甲)(banner,interstitial,video,interstitialVideo(全屏视频),splash,native)
 
 Vungle(banner,interstitial,video,interstitialVideo)
 
@@ -51,6 +51,8 @@ Mintegral(banner,interstitial,video,interstitialVideo,splash)
 
 Mintegral-GP(banner,interstitial,video,interstitialVideo,splash)
 
+OneWay(interstitial,video,interstitialVideo,splash,native)
+
 **下一步打算支持的广告平台:**
 
 IronSource
@@ -60,13 +62,13 @@ IronSource
 
 ```
 
-- Android Studio 3.6以上（建议环境，其余需要进一步测试）
+- Android Studio 3.3.1及以上(需要自动化插件版本大于等于6)
 
-- AndroidX(必须)
+- AndroidX(必须，admob等广告强制要求)
 
-- Java/Kotlin
+- Java/Kotlin(建议Kotlin，专为Kotlin设计，也对Java场景进行了优化)
 
-- JAVA 1.8
+- JAVA 1.8(建议Java用户使用)
 
 ```
 
@@ -82,7 +84,7 @@ buildscript {
         maven { url 'https://tjhello.gitee.io/publiclib/'}
      }
      dependencies {
-        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t44"
+        classpath "com.TJHello.plugins:ADEasy:5.3.2102-t03"
      }
 }
 ```
@@ -295,7 +297,7 @@ class TestActivity : AppActivity() {
 
 ### adEasy API说明
 
-```kotlin
+```
 boolean hasBanner() //是否有banner
 boolean hasInterstitial() //是否有插屏广告
 boolean hasVideo() //是否有激励视频
@@ -305,6 +307,7 @@ boolean showInterstitialVideo() //显示插屏视频
 boolean showVideo() //显示激励视频
 boolean hideBanner() //隐藏banner
 void showSplash()//显示开屏
+void showNative(ViewGroup viewGroup,String tag,Int position){}//显示原生广告
 
 void hangLifeUp() //挂起生命周期,用于弹起隐私协议等场景,需要在adEasy.onCreate前调用
 void hangLifeDown() //放下挂起的生命周期，继续执行
@@ -325,7 +328,7 @@ ADEasy.getOLParameter() //获取在线参数,需要开启在线功能，并且�
 ADEasy.toOfflineMode() //进入离线模式
 ADEasy.exitApp() //退出应用的时候调用，关联友盟exit等
 ADEasy.setInitListener() //设置一个各广告平台初始化监听器
-ADEasy.getConfigManager() //获取广告配置管理器，可以修改广告控制体数值。需要在初始化完成之后调用。
+ADEasy.getConfigManager() //获取广告配置管理器，可以修改广告控制体数值。需要在onInitAfter之后调用。
 
 ```
 
@@ -360,20 +363,22 @@ t:内部测试
 ```
 
 ### SDK版本对应
-x.3.xxxx
+x.3.xxxx(持续更新中)
 ```
 ~~Yomob(已删除)~~
-MI:5.0.3
-Unity:3.4.8(修复Android11崩溃的问题)
-ByteDance:3.2.5.1
+MI:5.0.6
+Unity:3.4.8
+ByteDance:3.4.1.0
 Admob:19.3.0
-GDTSDK:4.251.1121(修复Android11崩溃问题)
+GDT:4.310.1180
 Vungle:6.7.0
 Facebook:5.9.1
 Baidu:5.86
 Vivo:4.2.0.0
 Oppo:3.5.1
 Mintegral:14.4.41
+OneWay:2.4.5
+Huawei:13.4.35.300
 ```
 
 
@@ -413,11 +418,16 @@ Facebook:5.6.0
 ```
 
 ### 自动化插件更新日志
+v6
+```
+1、支持Android Studio 4.1.1
+```
+
 v5
 ```
 1、重构整个模块，改为纯Kotlin实现。
-2、即将支持多渠道（开发中）
-3、新增oppo、vivo、mintegral平台。
+2、新增oppo、vivo、mintegral、oneWay、huawei,baiDu平台。
+3、支持Android Studio 3.3.1-4.0.1
 ```
 v4
 ```
@@ -432,10 +442,10 @@ v3
 
 ### 主程序更新日志
 
-5.3.2001-t44(持续更新中)
+6.3.2102-t03(持续更新中)
 ```
 1、重构代码，将广告平台的逻辑完全分离开来到单独模块。解决了ov联运包检测不通过的问题。
-2、新增oppo、vivo、mintegral平台。
+2、新增oppo、vivo、mintegral、huawei、baidu平台，升级多个平台。
 3、开放本地控制广告，修改控制体的api。eg:ADEasy.getConfigManager()
 4、修复和优化大量问题，系统整体更加稳定了。
 ```

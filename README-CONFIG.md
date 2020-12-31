@@ -44,9 +44,21 @@
 - bannerCtrl----------------------------------------------------------Banner控制体
    - switch----------------------------------------Banner开关
    - maxFill---------------------------------------单页面最大填充数
+   - refreshTime-----------------------------------自动轮播间隔(秒)，小于等于0则关闭轮播
+   - autoShow--------------------------------------是否自动展示
 - splashCtrl----------------------------------------------------------Banner控制体
    - switch----------------------------------------Banner开关
-   - maxWaitTime---------------------------------------最大等待时间   
+   - maxWaitTime---------------------------------------最大等待时间
+- nativeCtrl----------------------------------------------------------Native控制体
+   - switch----------------------------------------Native开关
+- nativeList----------------------------------------------------------Native广告列表
+   - tag-------------------------------------------标签(必须)
+   - weight----------------------------------------权重
+   - parameterList---------------------------------广告位列表
+      - code--------------广告位代码
+      - type--------------广告位类型(native)
+      - weight------------广告位权重
+      - group-------------广告位平台   
 - ctrl---------------------------------------------------------------控制体(同上)
 
 ## 示例
@@ -60,14 +72,14 @@
 			"group": "mi",
 			"weight": 1,
 			"ctrl": {
-				"whiteMap": [
+				"whiteMap": {
 					"country":["CN"],
 					"brand":["Xiaomi"],
 					"model":["Xiaomi 10"]
-				],
-				"blackMap": [
+				},
+				"blackMap": {
 					"country":["JP"]
-				],
+				},
 				"appVer": [1,1],
 				"androidVer": [-1,-1]
 			},
@@ -107,11 +119,107 @@
 		}
 	],
 	"parameterMap": {
-		"key1": [
+		"parameter1": [
 			{
 				"value": "在线参数1"
 			}
 		]
-	}
+	},
+    "nativeList": [
+	    {
+            "tag": "home",
+            "weight": 1,
+            "parameterList": [
+                {
+                    "code": "xxxxxxxx",
+                    "type": "native",
+                    "weight": 100,
+                    "group": "byteDance"
+                }
+            ]
+        }
+    ]
 }
 ```
+
+### Group-平台代码对照表(区分大小写)
+
+平台 | 代码
+---|---
+小米 | mi
+穿山甲 | byteDance
+Unity | unity
+AdMob | adMob
+腾讯优量汇 | gdt
+Facebook | facebook
+Vungle | vungle
+VIVO | vivo
+OPPO | oppo
+百度 | baidu
+Mintegral | mintegral
+MintegralGp | mintegral_gp
+oneWay | oneWay
+
+### Type-广告类型代码对照表(区分大小写)
+类型 | 代码
+--- | ---
+激励视频 | video
+插屏 | ins
+视频插屏 | ins_video
+banner | banner
+开屏 | splash
+信息流 | native
+
+### 控制体配置详细说明
+```json
+{
+	"ctrl": {
+		"whiteMap": {
+			"country": ["CN"],
+			"brand": ["Xiaomi"],
+			"model": ["Xiaomi 10"],
+            "channel":["GooglePlay"]
+		},
+		"blackMap": {
+			"country": ["CN"],
+			"brand": ["Xiaomi"],
+			"model": ["Xiaomi 10"],
+            "channel":["GooglePlay"]
+		},
+		"appVer": [1,1],
+		"androidVer": [-1,-1]
+	}
+}
+
+```
+
+### API说明
+
+- #### 全局静态方法
+    1. 进入离线模式
+    ```kotlin
+          ADEasy.toOfflineMode()//需要在ADEasy.init()前调用
+    ```
+    2. 进入在线配置测试模式，进入该模式之后，程序获取的是后台"发布到测试"的在线配置，该模式在release下自动关闭。
+    ```kotlin
+          ADEasy.toTestMode()//需要在ADEasy.init()前调用
+    ```
+    3. 开关调试模式，该模式关联广告的debug模式，同时打开日志，release下自动关闭。
+    ```kotlin
+          ADEasy.setDebug(boolean)//需要在ADEasy.init()前调用
+    ```
+    4. 打开日志。
+    ```kotlin
+          ADEasy.openLog()//需要在ADEasy.init()前调用
+    ```    
+    5. 获取在线参数。需要在后台配置在线参数
+    ```kotlin
+          ADEasy.getOLParameter(String)
+    ```
+    6. 获取控制体管理器
+    ```kotlin
+          ADEasy.getConfigManager()//需要在onInitAfter里调用。
+    ```
+  
+
+

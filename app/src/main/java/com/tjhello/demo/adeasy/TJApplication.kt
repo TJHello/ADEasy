@@ -38,7 +38,7 @@ class TJApplication : Application(), ADEasyApplicationImp {
     override fun onCreate() {
         super.onCreate()
         ADEasy.setDebug(true)//这个关系到广告的测试模式，如使用自动集成插件，release模式下，会强行设置为false
-        ADEasy.channel = ADChannel.Order//关联友盟渠道
+        ADEasy.setChannel(ADChannel.Order)//关联友盟渠道
         ADEasy.toOfflineMode()//关闭在线模式
 //        ADEasy.toTestMode()//测试配置模式，此时访问的是测试在线配置(仅针对在线模式)
         ADEasyLog.addFilterType(

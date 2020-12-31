@@ -149,4 +149,9 @@ public class JavaMainActivity extends JavaAppActivity {
     public void onAdClick(@NotNull ADInfo adInfo) {
 
     }
+
+    @Override
+    public void onAdInit() {
+
+    }
 }

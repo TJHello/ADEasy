@@ -12,7 +12,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath "com.TJHello.plugins:ADEasy:5.3.2001-t44"
+        classpath "com.TJHello.plugins:ADEasy:6.3.2102-t03"
     }
 }
 
