@@ -13,13 +13,14 @@
 使用该程序之前，请仔细阅读：[《免责声明与许可协议》](https://github.com/TJHello/ADEasy/blob/master/LICENSE.md)
 
 ---
-一套全平台的广告聚合SDK快速集成框架。
+**一套全平台广告聚合SDK自动集成框架。**
+
 
 **简介：**
 
 - 自动化集成技术，只需要简单控制平台开关就能实现广告接入。并且对于未接入的广告，不会有冗余的代码。
 - 更直观更简洁更高效的对外接口。
-- 可动态根据权重来分配广告位，有效提高收益。
+- 可动态根据权重来分配广告位，有效提高收益(可能)。
 - 全局可控广告加载队列，有效提高性能，广告加载数可控。
 - 可精确到某个版本、机型、国家、系统、渠道来控制广告。
 - 可选日志输出，精确定位问题，掌控流程。
@@ -84,7 +85,7 @@ buildscript {
         maven { url 'https://tjhello.gitee.io/publiclib/'}
      }
      dependencies {
-        classpath "com.TJHello.plugins:ADEasy:5.3.2102-t03"
+        classpath "com.TJHello.plugins:ADEasy:6.3.2102-t09"
      }
 }
 ```
@@ -99,18 +100,19 @@ ADEasyExt{
     inChina = true //必须-国内true-国外false
     debug = true //该开关关联广告debug开关，release版会自动设置为false
     //以下参数选择性填写，默认false
-    //adMobId = "ca-app-pub-755515620*****~*****61045" //adMob的id,接入admob必填，并且更改成正确的id，否则admob会闪退。
+    //adMobId = "ca-app-pub-xxxxx" //adMob的id,接入admob必填，并且更改成正确的id，否则admob会闪退。
     //adMob = true //admob开关
     adUnity = true //unity开关
     adMi = true //mi广告开关
-    adGdt = true //腾讯优量汇(广点通)开关
+    adGdt = true //腾讯优量汇开关
     adFacebook = true//Facebook开关
-    adByteDance = false//ByteDance(穿山甲)开关
+    adByteDance = false//穿山甲开关
     adVungle = false//Vungle开关
-    adOppo = false//支持oppo联运情景
-    adVivo = false//支持vivo联运情景
-    adMintegral = false//Mintegral-中国
-    adMintegralGp = false//Mintegral-海外
+    adOppo = false//oppo开关
+    adVivo = false//vivo开关
+    adMintegral = false//Mintegral-中国开关
+    adMintegralGp = false//Mintegral-海外开关
+    adOneWay = false//OneWay开关
     //umeng = ['key'] //是否让ADEasy托管友盟,['key','deviceType(可选，默认1)','pushSecret(可选，默认null)']
     //abTest = true //ABTest开关 https://github.com/TJHello/ABTest
     //exclude = ['xxxx'] //例外掉某个包
@@ -144,7 +146,7 @@ class TJApplication : Application(),ADEasyApplicationImp{
     override fun onCreate() {
         super.onCreate()
         ADEasy.setDebug(true)//关联广告平台debug模式，release版会自动设置为false
-        ADEasy.channel = ADChannel.Order//关联友盟渠道与某些广告平台的渠道
+        ADEasy.setChannel(ADChannel.Order)//关联友盟渠道与某些广告平台的渠道
         ADEasy.toOfflineMode()//离线模式
         ADEasyLog.addFilterType(//添加日志(默认显示基础日志)
             ADEasyLog.TYPE_HANDLER_BASE,
@@ -442,7 +444,7 @@ v3
 
 ### 主程序更新日志
 
-6.3.2102-t03(持续更新中)
+6.3.2102-t09(持续更新中)
 ```
 1、重构代码，将广告平台的逻辑完全分离开来到单独模块。解决了ov联运包检测不通过的问题。
 2、新增oppo、vivo、mintegral、huawei、baidu平台，升级多个平台。
