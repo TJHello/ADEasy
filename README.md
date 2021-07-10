@@ -85,7 +85,7 @@ buildscript {
         maven { url 'https://tjhello.gitee.io/publiclib/'}
      }
      dependencies {
-        classpath "com.TJHello.plugins:ADEasy:6.3.2102-t17"
+        classpath "com.TJHello.plugins:ADEasy:8.3.2102-t42"//8.x版本的插件只支持gradle4.2.x，4.1.x以及以下需要使用7.3.2102-t41版本
      }
 }
 ```
@@ -319,6 +319,7 @@ void isAutoShowInterstitial()//当前页面是否自动显示插屏,需要在adE
 void closeAD() //关闭当前页面的广告功能，需要在adEasy.onCreate前调用
 
 ADEasy.init() //初始化接口
+ADEasy.agreePrivacy() //同意隐私协议，必须调用
 ADEasy.setDebug() //关联广告的debug模式，同时打开日志,release模式下自动设置为false
 ADEasy.openLog() //打开日志
 ADEasy.toTestMode() //打开测试在线配置模式-仅针对在线模式
@@ -420,9 +421,20 @@ Facebook:5.6.0
 ```
 
 ### 自动化插件更新日志
+
+v8
+```
+1、支持Android Studio gradle 4.2.x
+```
+
+v7
+```
+1、支持AAB模式
+```
+
 v6
 ```
-1、支持Android Studio 4.1.1
+1、支持Android Studio gradle 4.1.x
 ```
 
 v5
@@ -444,7 +456,14 @@ v3
 
 ### 主程序更新日志
 
-6.3.2102-t09(持续更新中)
+8.3.2102-t42(持续更新中)
+```
+1、修复bug，优化API使用。
+2、支持TopOn聚合SDK。
+3、迎合国家相关政策，增加ADEasy.agreePrivacy()接口，必须调用
+```
+
+6.3.2102-t09
 ```
 1、重构代码，将广告平台的逻辑完全分离开来到单独模块。解决了ov联运包检测不通过的问题。
 2、新增oppo、vivo、mintegral、huawei、baidu平台，升级多个平台。

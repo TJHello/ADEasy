@@ -61,5 +61,20 @@
       <option name="name" value="maven3" />
       <option name="url" value="https://tjhello.gitee.io/publiclib/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven5" />
+      <option name="name" value="maven5" />
+      <option name="url" value="https://repo1.maven.org/maven2/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven6" />
+      <option name="name" value="maven6" />
+      <option name="url" value="https://artifact.bytedance.com/repository/pangle" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven4" />
+      <option name="name" value="maven4" />
+      <option name="url" value="https://raw.githubusercontent.com/LimeEyewind/repo/master" />
+    </remote-repository>
   </component>
 </project>

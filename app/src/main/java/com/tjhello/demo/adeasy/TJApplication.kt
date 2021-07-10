@@ -47,6 +47,7 @@ class TJApplication : Application(), ADEasyApplicationImp {
             ADEasyLog.TYPE_TOOLS_UMENG
         )
         ADEasy.init(this,this)
+
     }
 
     override fun createAdPlatformConfig(group: String): PlatformConfig? {
